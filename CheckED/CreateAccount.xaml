@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckED.CreateAccount"
+             Title="CreateAccount">
+    <ScrollView
+       BackgroundColor="White"
+       MinimumHeightRequest="600">
+
+        <VerticalStackLayout
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+            <HorizontalStackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Start"
+        Spacing="45">
+                <Label 
+            Text="Name"
+            TextColor="Black"
+            FontSize="20"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+                <Frame
+            BorderColor="Black"
+            HasShadow="False"
+            Padding="5"
+            Margin="10"
+            CornerRadius="15">
+                    <Entry
+            Placeholder="Your Full Name"
+            TextChanged="UserNameCreate"
+            TextColor="Black"
+            FontSize="15"
+            BackgroundColor="White"
+            WidthRequest="300"
+            HorizontalOptions="Center"
+            VerticalOptions="Start" />
+
+                </Frame>
+
+            </HorizontalStackLayout>
+
+
+            <HorizontalStackLayout
+HorizontalOptions="Center"
+VerticalOptions="Start"
+Spacing="49">
+                <Label 
+    Text="Email"
+    TextColor="Black"
+    FontSize="20"
+    VerticalOptions="Center" 
+    HorizontalOptions="Center" />
+                <Frame
+    BorderColor="Black"
+    HasShadow="False"
+    Padding="5"
+    Margin="10"
+    CornerRadius="15">
+                    <Entry
+    Placeholder="Your Email Address"
+    TextChanged="UserEmailCreate"
+    TextColor="Black"
+    FontSize="15"
+    BackgroundColor="White"
+    WidthRequest="300"
+    HorizontalOptions="Center"
+    VerticalOptions="Start" />
+
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+HorizontalOptions="Center"
+VerticalOptions="Start"
+Spacing="40">
+                <Label 
+    Text="Phone"
+    TextColor="Black"
+    FontSize="20"
+    VerticalOptions="Center" 
+    HorizontalOptions="Center" />
+                <Frame
+    BorderColor="Black"
+    HasShadow="False"
+    Padding="5"
+    Margin="10"
+    CornerRadius="15">
+                    <Entry
+    Placeholder="Your Phone Number"
+    TextChanged="UserPhoneCreate"
+    TextColor="Black"
+    FontSize="15"
+    BackgroundColor="White"
+    WidthRequest="300"
+    HorizontalOptions="Center"
+    VerticalOptions="Start" />
+
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+HorizontalOptions="Center"
+VerticalOptions="Start"
+Spacing="19">
+                <Label 
+    Text="Password"
+    TextColor="Black"
+    FontSize="20"
+    VerticalOptions="Center" 
+    HorizontalOptions="Center" />
+                <Frame
+    BorderColor="Black"
+    HasShadow="False"
+    Padding="5"
+    Margin="10"
+    CornerRadius="15">
+                    <Entry
+    Placeholder="Enter Your New Password"
+    TextChanged="UserPasswordCreate"
+    TextColor="Black"
+    FontSize="15"
+    BackgroundColor="White"
+    WidthRequest="300"
+    HorizontalOptions="Center"
+    VerticalOptions="Start" />
+
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+HorizontalOptions="Center"
+VerticalOptions="Start"
+Spacing="0">
+                <Label 
+    Text="Confirm Password"
+    TextColor="Black"
+    FontSize="20"
+    VerticalOptions="Center" 
+    HorizontalOptions="Start" />
+                <Frame
+    BorderColor="Black"
+    HasShadow="False"
+    Padding="5"
+    Margin="10"
+    CornerRadius="15">
+                    <Entry
+    Placeholder="Your Full Name"
+    TextChanged="UserConfirmPasswordCreate"
+    TextColor="Black"
+    FontSize="15"
+    BackgroundColor="White"
+    WidthRequest="300"
+    HorizontalOptions="Center"
+    VerticalOptions="Start" />
+
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            <Button
+     Text="Create An Account"
+     x:Name="ButtonCreateAccount"
+     Clicked="BtnCreateAccount"
+     Margin="30"
+     FontSize="20"
+     TextColor="White"
+     BackgroundColor="Black"
+     HorizontalOptions="Center"
+     VerticalOptions="Start"
+     />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

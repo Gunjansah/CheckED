@@ -22,10 +22,11 @@ public partial class LoginPage : ContentPage
 
     }
 
-    private void BtnCreateAcc(object sender, EventArgs e)
+    private async void BtnCreateAcc(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new CreateAccount());
     }
+
 
     private void BtnUserSignIn(object sender, EventArgs e)
     {
