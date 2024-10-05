@@ -14,9 +14,9 @@
             }
         
 
-        private void CreatorBtnClicked(object sender, EventArgs e)
+        private async void CreatorBtnClicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new LoginPageCreator());
         }
 
         private void GuestBtnClicked(object sender, EventArgs e)

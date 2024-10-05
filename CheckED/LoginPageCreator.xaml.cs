@@ -1,11 +1,11 @@
 namespace CheckED;
 
-public partial class LoginPage : ContentPage
+public partial class LoginPageCreator : ContentPage
 {
-	public LoginPage()
-	{
+    public LoginPageCreator()
+    {
         InitializeComponent();
-	}
+    }
 
     private void UserEmail(object sender, TextChangedEventArgs e)
     {
@@ -28,8 +28,8 @@ public partial class LoginPage : ContentPage
     }
 
 
-    private async void BtnUserSignIn(object sender, EventArgs e)
+    private void BtnUserSignIn(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new UserDashboard());
+
     }
 }

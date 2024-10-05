@@ -72,6 +72,12 @@
 	  <Compile Update="CreateAccount.xaml.cs">
 	    <DependentUpon>CreateAccount.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="LoginPageCreator.xaml.cs">
+	    <DependentUpon>LoginPageCreator.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="UserDashboard.xaml.cs">
+	    <DependentUpon>UserDashboard.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -79,6 +85,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CreateAccount.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="LoginPageCreator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="UserDashboard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
