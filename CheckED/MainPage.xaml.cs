@@ -2,17 +2,17 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
-        public MainPage()
+            public MainPage()
         {
             InitializeComponent();
         }
 
-        private void UserBtnClicked(object sender, EventArgs e)
-        {
-
-        }
+  
+            private async void UserBtnClicked(object sender, EventArgs e)
+            {
+                await Navigation.PushAsync(new LoginPage());
+            }
+        
 
         private void CreatorBtnClicked(object sender, EventArgs e)
         {
