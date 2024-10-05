@@ -1,23 +1,25 @@
+using System.Text.RegularExpressions;
 namespace CheckED;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
-	{
+    public LoginPage()
+    {
         InitializeComponent();
-	}
-
-    private void UserEmail(object sender, TextChangedEventArgs e)
-    {
-
+        Showpass.CheckedChanged += (s, args) =>
+       {
+           if (args.Value)
+           {
+               Loginpasword.IsPassword = false;
+           }
+           else
+           {
+               Loginpasword.IsPassword = true;
+           }
+       };
     }
 
-    private void UserPassword(object sender, TextChangedEventArgs e)
-    {
-
-    }
-
-    private void BtnForgotPassword(object sender, EventArgs e)
+    private void BtnForgotPassword(object sender, EventArgs e) // A simple page that asks for email and will have button send passoword
     {
 
     }
@@ -28,8 +30,58 @@ public partial class LoginPage : ContentPage
     }
 
 
-    private void BtnUserSignIn(object sender, EventArgs e)
+    private async void BtnUserSignIn(object sender, EventArgs e)
     {
+        if ((LoginEmail.Text == null) || (Loginpasword.Text == null))
+        {
+            await DisplayAlert("Error", "All Fields must be filled", "Ok");
+        }
+        else
+        {
+            if (IsValidEmail(LoginEmail.Text))
+            {
 
+
+
+                // Console.WriteLine($"Email: {pair.Key}, Password: {pair.Value}");
+                if (emailPasswordDict.ContainsKey(LoginEmail.Text))
+                {
+                    if (emailPasswordDict[LoginEmail.Text] == Loginpasword.Text)
+                    {
+                        await DisplayAlert("Yahooo", "Yahooo", "Yahoo");
+                        return;
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "Your email or password is incorrect", "Ok");
+                        return;
+                    }
+                }
+
+                {
+                    await DisplayAlert("Error", "Your email or password is incorrect", "Ok");
+                    return;
+                }
+            }
+
+        }
     }
+
+    public static bool IsValidEmail(string email)
+    {
+        // Regular expression pattern for validating an email
+        string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+        // Use Regex.IsMatch to check if the email matches the pattern
+        return Regex.IsMatch(email, pattern);
+    }
+
+    Dictionary<string, string> emailPasswordDict = new Dictionary<string, string>
+        {
+            { "user1@example.com", "Password123!" },
+            { "user2@example.com", "SecurePass456@" },
+            { "test.user@example.com", "Test@789" },
+            { "hello.world@example.org", "HelloWorld@2021" },
+            { "john.doe@example.net", "JDoe#4567" }
+        };
 }

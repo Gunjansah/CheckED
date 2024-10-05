@@ -3,18 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.LoginPage"
              Title="LoginPage">
+
     <ScrollView
         BackgroundColor="White"
         MinimumHeightRequest="600">
         <VerticalStackLayout
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            BackgroundColor="white">
+            BackgroundColor="white"
+            Margin="50,0,0,0">
 
             <HorizontalStackLayout
-                HorizontalOptions="Center"
+                HorizontalOptions="Start"
                 VerticalOptions="Start"
-                Spacing="45">
+                Spacing="50">
                 <Label
                     Text="Email"
                     TextColor="Black"
@@ -28,17 +30,15 @@
                     Margin="10"
                     CornerRadius="5">
 
-
                     <Entry
+                        x:Name="LoginEmail"
                         Placeholder="Your email address..."
-                        TextChanged="UserEmail"
                         TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
                         WidthRequest="300"
                         HorizontalOptions="Center"
                         VerticalOptions="Start"/>
-
                 </Frame>
 
             </HorizontalStackLayout>
@@ -62,8 +62,9 @@
 
 
                     <Entry
+                        x:Name="Loginpasword"
+                        IsPassword="True"
                         Placeholder="Your Password..."
-                        TextChanged="UserPassword"
                         TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
@@ -72,11 +73,20 @@
                         VerticalOptions="Start"/>
 
                 </Frame>
+                <CheckBox
+                    x:Name="Showpass"
+                    Color="Black"
+                    IsChecked="False"/>
+                <Label
+                    VerticalOptions="Center"
+                    FontSize="18"
+                    Text="Show passoword"
+                    TextColor="Black"/>
 
             </HorizontalStackLayout>
             <HorizontalStackLayout
-                HorizontalOptions="Center"
-                Margin="80,0,0,0">
+                HorizontalOptions="Start"
+                Margin="110,0,0,0">
                 <Button
                     Text="Forgot Password?"
                     x:Name="ButtonForgotPassword"
@@ -101,24 +111,12 @@
                 Text="Sign In"
                 x:Name="ButtonUserSignIn"
                 Clicked="BtnUserSignIn"
-                Margin="100,10,25,25"
+                Margin="220,10,25,25"
                 FontSize="17"
                 TextColor="White"
                 BackgroundColor="Black"
-                HorizontalOptions="Center"
+                HorizontalOptions="Start"
                 VerticalOptions="Center"/>
-            <!-- <Button -->
-            <!--     Text="Create An Account?" -->
-            <!--     x:Name="ButtonCreateAcc" -->
-            <!--     Clicked="BtnCreateAcc" -->
-            <!--     Margin="0,5" -->
-            <!--     FontSize="14" -->
-            <!--     TextColor="Black" -->
-            <!--     BackgroundColor="White" -->
-            <!--     HorizontalOptions="Start" -->
-            <!--     VerticalOptions="Start" -->
-            <!--     /> -->
-
 
         </VerticalStackLayout>
     </ScrollView>
