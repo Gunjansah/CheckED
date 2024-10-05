@@ -3,27 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.MainPage">
 
-    <ScrollView 
+    <ScrollView
         BackgroundColor="White"
         MinimumHeightRequest="600">
-        
+
         <VerticalStackLayout
             Padding="20"
-           Spacing="30"
+            Spacing="30"
             HorizontalOptions="Center"
             VerticalOptions="Center">
-            
+
             <Image
                 Source="logo.png"
                 HeightRequest="150"
                 Aspect="AspectFit"
                 Margin="0"
                 HorizontalOptions="Center"
-                VerticalOptions="Start"
-                />
+                VerticalOptions="Start"/>
 
             <Label
-                Text="Are You An/A"
+                Text="Are You ... ?"
                 Style="{StaticResource Headline}"
                 TextColor="Black"
                 HorizontalOptions="Center"/>
@@ -35,46 +34,40 @@
                 VerticalOptions="Start">
 
                 <Button
-                        BackgroundColor="Black"
-                        x:Name="UserBtn"
-                        Text="User"
-                        TextColor="White"
-                        Clicked="UserBtnClicked"
-                        FontSize="20"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Center"
-                        />
+                    BackgroundColor="Black"
+                    x:Name="UserBtn"
+                    Text="An User"
+                    TextColor="White"
+                    Clicked="UserBtnClicked"
+                    FontSize="20"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
                 <Label
-                    Text = "OR"
+                    Text="OR"
                     TextColor="Black"
                     FontSize="20"
-                    VerticalTextAlignment="Center"
-                    />
+                    VerticalTextAlignment="Center"/>
 
                 <Button
-                        BackgroundColor="Black"
-                        x:Name="CreatorBtn"
-                        Text="Creator" 
-                        FontSize="20"
-                        TextColor="White"
-                        Clicked="CreatorBtnClicked"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Center"
-                        />
+                    BackgroundColor="Black"
+                    x:Name="CreatorBtn"
+                    Text="A Creator"
+                    FontSize="20"
+                    TextColor="White"
+                    Clicked="CreatorBtnClicked"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
 
 
             </HorizontalStackLayout>
             <Button
                 BackgroundColor="Black"
                 x:Name="GuestBtn"
-                Text="Continue as Guest" 
+                Text="Continue as Guest"
                 FontSize="20"
                 TextColor="White"
-                Clicked="GuestBtnClicked" 
-             
-                HorizontalOptions="FillAndExpand"
-                
-                />
+                Clicked="GuestBtnClicked"
+                HorizontalOptions="FillAndExpand"/>
         </VerticalStackLayout>
     </ScrollView>
 

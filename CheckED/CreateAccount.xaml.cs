@@ -9,7 +9,7 @@ public partial class CreateAccount : ContentPage
 
     private void UserNameCreate(object sender, TextChangedEventArgs e)
     {
-
+		
     }
 
     private void UserEmailCreate(object sender, TextChangedEventArgs e)
