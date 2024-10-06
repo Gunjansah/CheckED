@@ -4,7 +4,6 @@
              x:Class="CheckED.MainPage">
 
     <ScrollView
-        BackgroundColor="White"
         MinimumHeightRequest="600">
 
         <VerticalStackLayout
@@ -24,7 +23,6 @@
             <Label
                 Text="Are You ... ?"
                 Style="{StaticResource Headline}"
-                TextColor="Black"
                 HorizontalOptions="Center"/>
 
             <HorizontalStackLayout
@@ -34,26 +32,21 @@
                 VerticalOptions="Start">
 
                 <Button
-                    BackgroundColor="Black"
                     x:Name="UserBtn"
                     Text="An User"
-                    TextColor="White"
                     Clicked="UserBtnClicked"
                     FontSize="20"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Center"/>
                 <Label
                     Text="OR"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalTextAlignment="Center"/>
 
                 <Button
-                    BackgroundColor="Black"
                     x:Name="CreatorBtn"
                     Text="A Creator"
                     FontSize="20"
-                    TextColor="White"
                     Clicked="CreatorBtnClicked"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Center"/>
@@ -61,11 +54,9 @@
 
             </HorizontalStackLayout>
             <Button
-                BackgroundColor="Black"
                 x:Name="GuestBtn"
                 Text="Continue as Guest"
                 FontSize="20"
-                TextColor="White"
                 Clicked="GuestBtnClicked"
                 HorizontalOptions="FillAndExpand"/>
         </VerticalStackLayout>

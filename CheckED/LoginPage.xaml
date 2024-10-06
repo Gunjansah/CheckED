@@ -4,22 +4,25 @@
              x:Class="CheckED.LoginPage"
              Title="LoginPage">
 
+
     <ScrollView
-        BackgroundColor="White"
         MinimumHeightRequest="600">
+
         <VerticalStackLayout
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            BackgroundColor="white"
             Margin="50,0,0,0">
+
+
 
             <HorizontalStackLayout
                 HorizontalOptions="Start"
                 VerticalOptions="Start"
                 Spacing="50">
                 <Label
+                    x:Name="lblemail"
+                    Style="{StaticResource labelStyle}"
                     Text="Email"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
@@ -48,8 +51,8 @@
                 VerticalOptions="Start"
                 Spacing="10">
                 <Label
+                    x:Name="lblpass"
                     Text="Password"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
@@ -65,7 +68,6 @@
                         x:Name="Loginpasword"
                         IsPassword="True"
                         Placeholder="Your Password..."
-                        TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
                         WidthRequest="300"
@@ -75,13 +77,12 @@
                 </Frame>
                 <CheckBox
                     x:Name="Showpass"
-                    Color="Black"
                     IsChecked="False"/>
                 <Label
+                    x:Name="lblshowpass"
                     VerticalOptions="Center"
                     FontSize="18"
-                    Text="Show passoword"
-                    TextColor="Black"/>
+                    Text="Show password"/>
 
             </HorizontalStackLayout>
             <HorizontalStackLayout
@@ -92,17 +93,13 @@
                     x:Name="ButtonForgotPassword"
                     Clicked="BtnForgotPassword"
                     Margin="0,5,10,5"
-                    FontSize="14"
-                    TextColor="Black"
-                    BackgroundColor="White"/>
+                    FontSize="14"/>
                 <Button
                     Text="Create An Account?"
                     x:Name="ButtonCreateAcc"
                     Clicked="BtnCreateAcc"
                     Margin="0,5"
                     FontSize="14"
-                    TextColor="Black"
-                    BackgroundColor="White"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"/>
             </HorizontalStackLayout>
@@ -113,8 +110,6 @@
                 Clicked="BtnUserSignIn"
                 Margin="220,10,25,25"
                 FontSize="17"
-                TextColor="White"
-                BackgroundColor="Black"
                 HorizontalOptions="Start"
                 VerticalOptions="Center"/>
 

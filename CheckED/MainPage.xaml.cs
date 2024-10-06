@@ -2,11 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
+        public MainPage() => InitializeComponent();
 
         private async void UserBtnClicked(object sender, EventArgs e)
         {

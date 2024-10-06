@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.CreateAccount"
              Title="CreateAccount">
+
+
+
     <ScrollView
-        BackgroundColor="White"
         MinimumHeightRequest="600">
 
         <VerticalStackLayout
             HorizontalOptions="Center"
             VerticalOptions="Center">
+
 
             <HorizontalStackLayout
                 HorizontalOptions="End"
@@ -18,13 +21,11 @@
 
                 <Label
                     Text="Name"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
 
                 <Frame
-                    BorderColor="Black"
                     HasShadow="False"
                     Padding="5"
                     Margin="10"
@@ -32,7 +33,6 @@
                     <Entry
                         x:Name="UserName"
                         Placeholder="Your Full Name"
-                        TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
                         WidthRequest="300"
@@ -50,12 +50,10 @@
                 Spacing="49">
                 <Label
                     Text="Email"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
                 <Frame
-                    BorderColor="Black"
                     HasShadow="False"
                     Padding="5"
                     Margin="10"
@@ -63,7 +61,6 @@
                     <Entry
                         x:Name="UserEmail"
                         Placeholder="Your Email Address"
-                        TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
                         WidthRequest="300"
@@ -80,12 +77,10 @@
                 Spacing="40">
                 <Label
                     Text="Phone"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
                 <Frame
-                    BorderColor="Black"
                     HasShadow="False"
                     Padding="5"
                     Margin="10"
@@ -93,7 +88,6 @@
                     <Entry
                         x:Name="UserPhone"
                         Placeholder="Your Phone Number"
-                        TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
                         WidthRequest="300"
@@ -110,12 +104,10 @@
                 Spacing="19">
                 <Label
                     Text="Password"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"/>
                 <Frame
-                    BorderColor="Black"
                     HasShadow="False"
                     Padding="5"
                     Margin="10"
@@ -123,7 +115,6 @@
                     <Entry
                         x:Name="UserPass"
                         Placeholder="Enter Your New Password"
-                        TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
                         WidthRequest="300"
@@ -140,12 +131,10 @@
                 Spacing="0">
                 <Label
                     Text="Confirm Password"
-                    TextColor="Black"
                     FontSize="20"
                     VerticalOptions="Center"
                     HorizontalOptions="Start"/>
                 <Frame
-                    BorderColor="Black"
                     HasShadow="False"
                     Padding="5"
                     Margin="10"
@@ -153,7 +142,6 @@
                     <Entry
                         x:Name="UserConfirmPass"
                         Placeholder="Confirm Your Password"
-                        TextColor="Black"
                         FontSize="15"
                         BackgroundColor="White"
                         WidthRequest="300"
@@ -170,8 +158,6 @@
                 Clicked="BtnCreateAccount"
                 Margin="66,30,0,30"
                 FontSize="20"
-                TextColor="White"
-                BackgroundColor="Black"
                 HorizontalOptions="Center"
                 VerticalOptions="Start"/>
         </VerticalStackLayout>

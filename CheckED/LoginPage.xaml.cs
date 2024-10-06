@@ -17,6 +17,7 @@ public partial class LoginPage : ContentPage
                Loginpasword.IsPassword = true;
            }
        };
+
     }
 
     private void BtnForgotPassword(object sender, EventArgs e) // A simple page that asks for email and will have button send passoword
@@ -40,13 +41,10 @@ public partial class LoginPage : ContentPage
         {
             if (IsValidEmail(LoginEmail.Text))
             {
-
-
-
                 // Console.WriteLine($"Email: {pair.Key}, Password: {pair.Value}");
                 if (emailPasswordDict.ContainsKey(LoginEmail.Text))
                 {
-                    if (emailPasswordDict[LoginEmail.Text] == Loginpasword.Text)
+                    if (emailPasswordDict[LoginEmail.Text] == Loginpasword.Text) // Just checking from dict rn
                     {
                         await DisplayAlert("Yahooo", "Yahooo", "Yahoo");
                         return;
@@ -54,6 +52,8 @@ public partial class LoginPage : ContentPage
                     else
                     {
                         await DisplayAlert("Error", "Your email or password is incorrect", "Ok");
+                        LoginEmail.BackgroundColor = Color.Parse("#FFD5D2");
+                        Loginpasword.BackgroundColor = Color.Parse("#FFD5D2");
                         return;
                     }
                 }
@@ -63,6 +63,11 @@ public partial class LoginPage : ContentPage
                     return;
                 }
             }
+            else
+            {
+                LoginEmail.BackgroundColor = Color.Parse("#FFD5D2");
+                await DisplayAlert("Error", "Invalid Email Format", "OK");
+            }
 
         }
     }
@@ -70,13 +75,13 @@ public partial class LoginPage : ContentPage
     public static bool IsValidEmail(string email)
     {
         // Regular expression pattern for validating an email
-        string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+        string pattern = "@usm.edu";
 
         // Use Regex.IsMatch to check if the email matches the pattern
         return Regex.IsMatch(email, pattern);
     }
 
-    Dictionary<string, string> emailPasswordDict = new Dictionary<string, string>
+    Dictionary<string, string> emailPasswordDict = new Dictionary<string, string> // Sample Users can delete later
         {
             { "user1@example.com", "Password123!" },
             { "user2@example.com", "SecurePass456@" },
@@ -84,4 +89,6 @@ public partial class LoginPage : ContentPage
             { "hello.world@example.org", "HelloWorld@2021" },
             { "john.doe@example.net", "JDoe#4567" }
         };
+
+
 }

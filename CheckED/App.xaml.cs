@@ -5,8 +5,9 @@
         public App()
         {
             InitializeComponent();
+            Current.UserAppTheme = AppTheme.Dark;
             MainPage = new NavigationPage(new MainPage());
-          
+
         }
     }
 }
