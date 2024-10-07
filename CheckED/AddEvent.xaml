@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckED.AddEvent"
+             Title="AddEvent">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Menu"
+            IconImageSource="hamburger_icon.png"  
+            Order="Primary"
+            Clicked="OnMenuClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView
+   
+         Orientation="Both"
+        BackgroundColor="White">
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0"
+                BackgroundColor="White"
+                Padding="20">
+                <VerticalStackLayout
+               Spacing="20">
+                    <Image
+              Source="Logo.png"
+              HorizontalOptions="Center"
+              VerticalOptions="Start" />
+                    <Label
+           Text= "UserName"
+           TextColor="Black"
+           HorizontalOptions="Center"
+           VerticalOptions="Start"/>
+
+                </VerticalStackLayout>
+            </StackLayout>
+
+
+            <BoxView Grid.Column="1"
+            Color="Black"
+            WidthRequest="2"
+            HorizontalOptions="Center"
+            VerticalOptions="FillAndExpand" />
+
+
+
+            <StackLayout Grid.Column="2"
+                BackgroundColor="White"
+                Padding="25"
+                         Margin="0,150,0,0">
+
+                <VerticalStackLayout
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Spacing="10">
+
+                    <HorizontalStackLayout
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Spacing="10">
+                        <Label 
+                                        Text="Event Name:"
+                                        TextColor="Black"
+                                        FontSize="20"
+                                        Margin="95,0,0,0"
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Start"/>
+
+                        <Border
+                                        BackgroundColor="Black"
+                                        Stroke="Black">
+                            <Entry
+                               WidthRequest="300"
+                               FontSize="15"
+                               BackgroundColor="White"
+                               TextColor="Black" />
+                        </Border>
+
+
+                    </HorizontalStackLayout>
+
+
+                    <HorizontalStackLayout
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Spacing="10">
+
+
+                        <Label Text="Media:" 
+                                        FontSize="20" 
+                                        Margin="150,0,0,0"
+                                        TextColor="Black" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Start"/>
+
+                        <Border
+                                             BackgroundColor="Black"
+                                             Stroke="Black">
+
+                            <Entry Placeholder="File Path"
+                               WidthRequest="300"
+                               FontSize="15"
+                               BackgroundColor="White"
+                               TextColor="Black" />
+
+                        </Border>
+
+                        <Button Text="Browse.." 
+                                BackgroundColor="Black" 
+                                TextColor="White" 
+                                Clicked="BrowseFiles" />
+                    </HorizontalStackLayout>
+
+
+                    <HorizontalStackLayout Spacing="10" 
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Start">
+                        <Label 
+                                        Text="Event Description:" 
+                                        FontSize="20" 
+                                        Margin="45,0,0,0"
+                                        TextColor="Black" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Start"/>
+
+                        <Border
+                                     Stroke="Black"
+                                        WidthRequest="300"
+                                        HeightRequest="250">
+
+                            <Editor 
+                                    FontSize="15" 
+                                    FontAutoScalingEnabled="True" 
+                                    BackgroundColor="White" 
+                                    TextColor="Black"
+                                    Placeholder="Enter the event description here..."
+                                    AutoSize="TextChanges" 
+                                    VerticalOptions="FillAndExpand" 
+                                    HorizontalOptions="FillAndExpand"
+                                    MaxLength="500" />
+
+                        </Border>
+                    </HorizontalStackLayout>
+
+
+
+
+                    <HorizontalStackLayout 
+                                    Spacing="10" 
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start">
+                        <Label 
+                                        Text="Registration Form Link:" 
+                                        FontSize="20" 
+                                        TextColor="Black" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Start"/>
+
+                        <Border
+                                        Stroke="Black">
+                            <Entry Placeholder="Enter your link"
+                               WidthRequest="300"
+                               FontSize="15"
+                               BackgroundColor="White"
+                               TextColor="Black" />
+                        </Border>
+                    </HorizontalStackLayout>
+
+
+
+
+
+
+                    <Button
+                                  Text="Add Event"
+                        Margin="80,20,0,0"
+                                  x:Name="AddtheEvent"
+                                  Clicked="AddTheEvent"
+                                  BackgroundColor="Black"
+                                  TextColor="White"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center"/>
+
+
+                </VerticalStackLayout>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

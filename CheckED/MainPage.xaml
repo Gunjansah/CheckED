@@ -5,6 +5,7 @@
 
     <ScrollView 
         BackgroundColor="White"
+        Orientation="Both"
         MinimumHeightRequest="600">
         
         <VerticalStackLayout

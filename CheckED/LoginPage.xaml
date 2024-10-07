@@ -5,6 +5,7 @@
              Title="LoginPage">
     <ScrollView
        BackgroundColor="White"
+        Orientation="Both"
        MinimumHeightRequest="600">
         <VerticalStackLayout
             HorizontalOptions="Center"

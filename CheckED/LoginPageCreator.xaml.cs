@@ -28,8 +28,8 @@ public partial class LoginPageCreator : ContentPage
     }
 
 
-    private void BtnUserSignIn(object sender, EventArgs e)
+    private async void BtnUserSignIn(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new CreatorDashboard());
     }
 }

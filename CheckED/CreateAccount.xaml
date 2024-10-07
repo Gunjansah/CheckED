@@ -4,6 +4,7 @@
              x:Class="CheckED.CreateAccount"
              Title="CreateAccount">
     <ScrollView
+        Orientation="Both"
        BackgroundColor="White"
        MinimumHeightRequest="600">
 

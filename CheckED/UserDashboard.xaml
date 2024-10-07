@@ -5,6 +5,7 @@
              Title="UserDashboard">
     <ScrollView
         BackgroundColor="White"
+        Orientation="Both"
         MinimumHeightRequest="600">
 
 

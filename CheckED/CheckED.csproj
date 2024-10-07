@@ -76,6 +76,21 @@
 	  <Compile Update="LoginPageCreator.xaml.cs">
 	    <DependentUpon>LoginPageCreator.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="CreatorDashboard.xaml.cs">
+	    <DependentUpon>CreatorDashboard.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="AddEvent.xaml.cs">
+	    <DependentUpon>AddEvent.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="BasePage.xaml.cs">
+	    <DependentUpon>BasePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ContactMe.xaml.cs">
+	    <DependentUpon>ContactMe.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Profile.xaml.cs">
+	    <DependentUpon>Profile.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="UserDashboard.xaml.cs">
 	    <DependentUpon>UserDashboard.xaml</DependentUpon>
 	  </Compile>
@@ -89,6 +104,21 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="LoginPageCreator.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CreatorDashboard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="AddEvent.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="BasePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContactMe.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Profile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="UserDashboard.xaml">
