@@ -19,9 +19,4 @@ public partial class AddEvent : ContentPage
     {
 
     }
-
-    private void OnMenuClicked(object sender, EventArgs e)
-    {
-
-    }
 }

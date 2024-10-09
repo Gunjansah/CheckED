@@ -24,7 +24,7 @@
                 />
 
             <Label
-                Text="Are You An/A"
+                Text="Welcome to CheckEd"
                 Style="{StaticResource Headline}"
                 TextColor="Black"
                 HorizontalOptions="Center"/>

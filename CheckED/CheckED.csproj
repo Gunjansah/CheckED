@@ -64,6 +64,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -81,15 +82,6 @@
 	  </Compile>
 	  <Compile Update="AddEvent.xaml.cs">
 	    <DependentUpon>AddEvent.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="BasePage.xaml.cs">
-	    <DependentUpon>BasePage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="ContactMe.xaml.cs">
-	    <DependentUpon>ContactMe.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Profile.xaml.cs">
-	    <DependentUpon>Profile.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="UserDashboard.xaml.cs">
 	    <DependentUpon>UserDashboard.xaml</DependentUpon>
@@ -110,15 +102,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="AddEvent.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="BasePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="ContactMe.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Profile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="UserDashboard.xaml">
