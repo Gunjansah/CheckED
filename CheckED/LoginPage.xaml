@@ -66,6 +66,7 @@
                     <Entry
             Placeholder="Your Password..."
                         x:Name="UserPasswordLogin"
+                        IsPassword="True"
             TextColor="Black"
             FontSize="15"
             BackgroundColor="White"

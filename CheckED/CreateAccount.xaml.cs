@@ -14,7 +14,9 @@ namespace CheckED;
         {
             InitializeComponent();
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Users.db3");
-            database = new DatabaseHelper(dbPath);
+       
+
+        database = new DatabaseHelper(dbPath);
         }
 
         async void BtnCreateAccount(object sender, EventArgs e)
