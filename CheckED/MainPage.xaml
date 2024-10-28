@@ -1,81 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CheckED.MainPage">
+             x:Class="CheckED.MainPage"
+             BackgroundColor="Black">
 
-    <ScrollView 
-        BackgroundColor="White"
+    <ScrollView
         Orientation="Both"
         MinimumHeightRequest="600">
         
         <VerticalStackLayout
-            Padding="20"
-           Spacing="30"
+            Padding="10"
+            Spacing="25"
             HorizontalOptions="Center"
-            VerticalOptions="Center">
+            VerticalOptions="Center"
+            BackgroundColor="Black">
             
             <Image
-                Source="logo.png"
-                HeightRequest="150"
-                Aspect="AspectFit"
-                Margin="0"
-                HorizontalOptions="Center"
-                VerticalOptions="Start"
-                />
+                Source="checkedlogo.png"
+                HeightRequest="300"
+                Aspect="Fill"
+                HorizontalOptions="Center"/>
+
 
             <Label
                 Text="Welcome to CheckEd"
-                Style="{StaticResource Headline}"
-                TextColor="Black"
+                FontSize="26"
+                FontAttributes="Bold"
+                TextColor="White"
                 HorizontalOptions="Center"/>
 
             <HorizontalStackLayout
-                Margin="0"
-                Spacing="40"
-                HorizontalOptions="Center"
-                VerticalOptions="Start">
+                Margin="0,10,0,20"
+                Spacing="30"
+                HorizontalOptions="Center">
 
                 <Button
-                        BackgroundColor="Black"
-                        x:Name="UserBtn"
-                        Text="User"
-                        TextColor="White"
-                        Clicked="UserBtnClicked"
-                        FontSize="20"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Center"
-                        />
+                    BackgroundColor="#333333"
+                    x:Name="UserBtn"
+                    Text="User"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    HeightRequest="50"
+                    WidthRequest="100"
+                    Clicked="UserBtnClicked"/>
+
                 <Label
-                    Text = "OR"
-                    TextColor="Black"
-                    FontSize="20"
-                    VerticalTextAlignment="Center"
-                    />
+                    Text="OR"
+                    TextColor="Gray"
+                    FontSize="18"
+                    VerticalTextAlignment="Center"/>
 
                 <Button
-                        BackgroundColor="Black"
-                        x:Name="CreatorBtn"
-                        Text="Creator" 
-                        FontSize="20"
-                        TextColor="White"
-                        Clicked="CreatorBtnClicked"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Center"
-                        />
-
+                    BackgroundColor="#333333"
+                    x:Name="CreatorBtn"
+                    Text="Creator"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    HeightRequest="50"
+                    WidthRequest="100"
+                    Clicked="CreatorBtnClicked"/>
 
             </HorizontalStackLayout>
+
             <Button
-                BackgroundColor="Black"
+                BackgroundColor="#333333"
                 x:Name="GuestBtn"
-                Text="Continue as Guest" 
-                FontSize="20"
+                Text="Continue as Guest"
                 TextColor="White"
-                Clicked="GuestBtnClicked" 
-             
-                HorizontalOptions="FillAndExpand"
+                FontSize="18"
+                FontAttributes="Bold"
+                CornerRadius="15"
+                HeightRequest="50"
+                HorizontalOptions="CenterAndExpand"
+                Clicked="GuestBtnClicked"/>
                 
-                />
         </VerticalStackLayout>
     </ScrollView>
 
