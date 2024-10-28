@@ -35,12 +35,12 @@
                 HorizontalOptions="Center">
 
                 <Button
-                    BackgroundColor="#333333"
+                    BackgroundColor="#ede8ff"
                     x:Name="UserBtn"
                     Text="User"
-                    TextColor="White"
+                    TextColor="Black"
                     FontSize="18"
-                    FontAttributes="Bold"
+                    
                     CornerRadius="5"
                     HeightRequest="50"
                     WidthRequest="100"
@@ -53,12 +53,12 @@
                     VerticalTextAlignment="Center"/>
 
                 <Button
-                    BackgroundColor="#333333"
+                    BackgroundColor="#ede8ff"
                     x:Name="CreatorBtn"
                     Text="Creator"
-                    TextColor="White"
+                    TextColor="black"
                     FontSize="18"
-                    FontAttributes="Bold"
+                    
                     CornerRadius="5"
                     HeightRequest="50"
                     WidthRequest="100"
@@ -67,12 +67,11 @@
             </HorizontalStackLayout>
 
             <Button
-                BackgroundColor="#333333"
+                BackgroundColor="#ede8ff"
                 x:Name="GuestBtn"
                 Text="Continue as Guest"
-                TextColor="White"
+                TextColor="black"
                 FontSize="18"
-                FontAttributes="Bold"
                 CornerRadius="5"
                 HeightRequest="50"
                 HorizontalOptions="CenterAndExpand"
