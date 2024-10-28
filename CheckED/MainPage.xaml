@@ -10,7 +10,7 @@
         
         <VerticalStackLayout
             Padding="10"
-            Spacing="25"
+            Spacing="20"
             HorizontalOptions="Center"
             VerticalOptions="Center"
             BackgroundColor="Black">
@@ -41,7 +41,7 @@
                     TextColor="White"
                     FontSize="18"
                     FontAttributes="Bold"
-                    CornerRadius="15"
+                    CornerRadius="5"
                     HeightRequest="50"
                     WidthRequest="100"
                     Clicked="UserBtnClicked"/>
@@ -59,7 +59,7 @@
                     TextColor="White"
                     FontSize="18"
                     FontAttributes="Bold"
-                    CornerRadius="15"
+                    CornerRadius="5"
                     HeightRequest="50"
                     WidthRequest="100"
                     Clicked="CreatorBtnClicked"/>
@@ -73,7 +73,7 @@
                 TextColor="White"
                 FontSize="18"
                 FontAttributes="Bold"
-                CornerRadius="15"
+                CornerRadius="5"
                 HeightRequest="50"
                 HorizontalOptions="CenterAndExpand"
                 Clicked="GuestBtnClicked"/>
