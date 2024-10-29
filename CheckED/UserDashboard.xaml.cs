@@ -28,6 +28,27 @@ public partial class UserDashboard : ContentPage
     {
 
     }
+
+    private void OnHamburgerClicked(object sender, EventArgs e)
+    {
+        Sidebar.IsVisible = !Sidebar.IsVisible;
+    }
+
+    private void AccountSettings_Clicked(object sender, EventArgs e)
+    {
+        // Logic to open account settings
+    }
+
+
+    private void BtnCheckIn(object sender, EventArgs e)
+    {
+        // Logic for check-in
+    }
+
+    private void RegisterEvent(object sender, EventArgs e)
+    {
+
+    }
 }
 
 public class Event
