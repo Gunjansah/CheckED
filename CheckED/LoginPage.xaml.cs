@@ -48,9 +48,9 @@ public partial class LoginPage : ContentPage
         await Navigation.PushAsync(new CreateAccount());
     }
 
-    private void BtnForgotPassword(object sender, EventArgs e)
+    private async void BtnForgotPassword(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new ResetPassword());
     }
 }
 
