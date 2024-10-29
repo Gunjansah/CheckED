@@ -61,9 +61,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="DotNetEnv" Version="3.1.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="SendGrid" Version="9.29.3" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 	</ItemGroup>
 
@@ -82,6 +84,9 @@
 	  </Compile>
 	  <Compile Update="AddEvent.xaml.cs">
 	    <DependentUpon>AddEvent.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ResetPassword.xaml.cs">
+	    <DependentUpon>ResetPassword.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="UserDashboard.xaml.cs">
 	    <DependentUpon>UserDashboard.xaml</DependentUpon>
@@ -102,6 +107,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="AddEvent.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ResetPassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="UserDashboard.xaml">

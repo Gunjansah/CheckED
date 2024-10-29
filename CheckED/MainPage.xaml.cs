@@ -1,10 +1,13 @@
-﻿namespace CheckED
+﻿using DotNetEnv;
+
+namespace CheckED
 {
     public partial class MainPage : ContentPage
     {
             public MainPage()
         {
             InitializeComponent();
+            Env.Load();
         }
 
   
