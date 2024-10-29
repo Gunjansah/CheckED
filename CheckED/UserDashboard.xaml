@@ -3,255 +3,87 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.UserDashboard"
              Title="User Dashboard">
-    <ScrollView
-        BackgroundColor="White"
-        Orientation="Both"
-        MinimumHeightRequest="600">
-
-
-        <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="190" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackLayout Grid.Column="0"
-                     BackgroundColor="White"
-                     Padding="20">
-                <VerticalStackLayout
-                    Spacing="20">
-            <Image
-                   Source="Logo.png"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
-                    <Label
-                Text= "UserName"
-                TextColor="Black"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
+       
+        <ImageButton Source="hamburger_icon.png" Clicked="OnHamburgerClicked"
+                     BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30"
+                     HorizontalOptions="Start" VerticalOptions="Start" Margin="10" />
 
-                </VerticalStackLayout>
-        </StackLayout>
         
+        <StackLayout x:Name="Sidebar" BackgroundColor="LightGray" Padding="10"  IsVisible="False"
+                     Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="FillAndExpand" WidthRequest="200" Margin="0,64,0,0">
+            <Label Text="User Options" FontSize="18" TextColor="Black" HorizontalOptions="Center" />
+            <Button Text="Profile" BackgroundColor="Transparent" TextColor="Black" />
+            <Button Text="Settings" BackgroundColor="Transparent" TextColor="Black" />
+            <Button Text="Logout" BackgroundColor="Transparent" TextColor="Black" />
+        </StackLayout>
 
-        <BoxView Grid.Column="1"
-                 Color="Black"
-                 WidthRequest="2"
-                 HorizontalOptions="Center"
-                 VerticalOptions="FillAndExpand" />
+        
+        <ScrollView BackgroundColor="White" Grid.Row="1" Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-          
-
-            <StackLayout Grid.Column="2"
-                     BackgroundColor="White"
-                     Padding="25">
-                <VerticalStackLayout
-                    Spacing="5">
-                <HorizontalStackLayout
-                    Spacing="15">
-
-                    <Label
-            Text="Search"
-            TextColor="Black"
-            FontSize="18"
-            HorizontalOptions="End"
-            VerticalOptions="Center"/>
-
-                 <Border>
-                 <Entry
-                 TextColor="Black"
-                 FontSize="15"
-                 WidthRequest="170"
-                 HorizontalOptions="Start"
-                 VerticalOptions="Start"/>
+                
+                <VerticalStackLayout Padding="40" Spacing="10" Grid.Column="0">
+                    <Label Text="Upcoming Events" FontAttributes="Bold" FontSize="18" TextColor="Black" Padding="10,0,0,20"/>
+                    <Border Stroke="Transparent" HeightRequest="450">
+                        <ScrollView>
+                            <CollectionView ItemsSource="{Binding UpcomingEvents}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                                            <StackLayout Spacing="10">
+                                                <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="200" />
+                                                <Label Text="{Binding EventName}" FontSize="20" FontAttributes="Bold" TextColor="Black" />
+                                                <Label Text="{Binding EventDate}" FontSize="16" TextColor="Gray" />
+                                                <Label Text="{Binding EventDescription}" FontSize="14" TextColor="Black" />
+                                                <Button Text="REGISTER" Clicked="BtnRegister" BackgroundColor="Black" TextColor="White" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
                     </Border>
-
-
-                </HorizontalStackLayout>
-               
-                <Grid
-                    Margin="0,120,0,20">
-
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackLayout
-                        Grid.Column="0"
-                       Padding="20">
-                        <VerticalStackLayout
-                            Spacing="25"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center">
-                            <Label
-                                Text="Upcoming Events"
-                                TextColor="Black"
-                                Margin="0"/>
-
-                            <Border
-                                HeightRequest="450"
-                                Stroke="Transparent">
-                                    
-                            <ScrollView>
-                           <CollectionView
-                             ItemsSource="{Binding UpcomingEvents}"  
-                             VerticalOptions="FillAndExpand">
-                            <CollectionView.ItemTemplate>
-                             <DataTemplate>
-                             <Frame
-                                 
-                            Padding="10"
-                            Margin="10"
-                            CornerRadius="10"
-                            HasShadow="True"
-                            BackgroundColor="White">
-                                                <StackLayout
-                                                    Spacing="5">
-                                      <Image
-                                    Source="{Binding ImageUrl}"  
-                                    Aspect="AspectFit"
-                                    HeightRequest="200"/>
-
-                                    <Label
-                                    Text="{Binding EventName}"  
-                                    LineBreakMode="WordWrap"
-                                    FontSize="20"
-                                    FontAttributes="Bold"
-                                    TextColor="Black"
-                                    Margin="0,10,0,0"/>
-
-                                    <Label
-                                    Text="{Binding EventDate}"  
-                                      LineBreakMode="WordWrap"
-                                    FontSize="16"
-                                    TextColor="Gray"/>
-
- 
-                                    <Label
-                                    Text="{Binding EventDescription}" 
-                                    FontSize="14"
-                                    LineBreakMode="WordWrap"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Start"
-                                    TextColor="Black"
-                                    Margin="0,5,0,0"/>
-
-                                                    
-                                     <Button
-                                     Text="REGISTER"
-                                     HorizontalOptions="End"
-                                     x:Name="ButtonRegister"
-                                     Clicked="BtnRegister"
-                                     BackgroundColor="Black"
-                                     TextColor="White"/>
-
-                                                    </StackLayout>
-                                            </Frame>
-                                        </DataTemplate>
-                                    </CollectionView.ItemTemplate>
-
-                                </CollectionView>
-                            </ScrollView>
-                            </Border>
-
-                        </VerticalStackLayout>
-
-                    </StackLayout>
-
-                    
-                    
-                    
-
-                    <StackLayout
-                        Grid.Column="2"
-                       Padding="20">
-                        <VerticalStackLayout
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"
-                            Spacing="25">
-                            <Label
-                                Text="Registered Events"
-                                TextColor="Black"
-                                Margin="0"/>
-
-
-                            <Border
-                           HeightRequest="450"
-                            Stroke="Transparent">
-
-                                <ScrollView>
-                                    <CollectionView
-                                     ItemsSource="{Binding UpcomingEvents}"  
-                                      VerticalOptions="FillAndExpand">
-                                        <CollectionView.ItemTemplate>
-                                            <DataTemplate>
-                                                <Frame
-      
-                                                Padding="10"
-                                                 Margin="10"
-                                                CornerRadius="10"
-                                                HasShadow="True"
-                                                     BackgroundColor="White">
-                                                    <StackLayout
-                                                     Spacing="5">
-                                                        <Image
-                                                     Source="{Binding ImageUrl}"  
-                                                     Aspect="AspectFit"
-                                                     HeightRequest="200"/>
-
-                                                        <Label
-                                                     Text="{Binding EventName}"  
-                                                     LineBreakMode="WordWrap"
-                                                     FontSize="20"
-                                                     FontAttributes="Bold"
-                                                     TextColor="Black"
-                                                     Margin="0,10,0,0"/>
-
-                                                        <Label
-                                                         Text="{Binding EventDate}"  
-                                                           LineBreakMode="WordWrap"
-                                                         FontSize="16"
-                                                         TextColor="Gray"/>
-
-
-                                                        <Label
-                                                         Text="{Binding EventDescription}" 
-                                                         FontSize="14"
-                                                         LineBreakMode="WordWrap"
-                                                         HorizontalOptions="Start"
-                                                         VerticalOptions="Start"
-                                                         TextColor="Black"
-                                                         Margin="0,5,0,0"/>
-
-
-                                                        <Button
-                                                          Text="Check In"
-                                                          HorizontalOptions="End"
-                                                          x:Name="ButtonRegister"
-                                                          Clicked="BtnRegister"
-                                                          BackgroundColor="Black"
-                                                          TextColor="White"/>
-
-                                                    </StackLayout>
-                                                </Frame>
-                                            </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-
-                                    </CollectionView>
-                                </ScrollView>
-                            </Border>
-
-                        </VerticalStackLayout>
-
-                    </StackLayout>
-
-                </Grid>
                 </VerticalStackLayout>
-            </StackLayout>
+
+
+                
+                <VerticalStackLayout Padding="40" Spacing="10" Grid.Column="1">
+                    <Label Text="Registered Events" FontAttributes="Bold" FontSize="18" TextColor="Black" />
+                    <Border Stroke="Transparent" HeightRequest="450">
+                        <ScrollView>
+                            <CollectionView ItemsSource="{Binding UpcomingEvents}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Padding="10" Margin="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                                            <StackLayout Spacing="5">
+                                                <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="200" />
+                                                <Label Text="{Binding EventName}" FontSize="20" FontAttributes="Bold" TextColor="Black" />
+                                                <Label Text="{Binding EventDate}" FontSize="16" TextColor="Gray" />
+                                                <Label Text="{Binding EventDescription}" FontSize="14" TextColor="Black" />
+                                                <Button Text="Check In" BackgroundColor="Black" TextColor="White" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </ScrollView>
+                    </Border>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
     </Grid>
-    </ScrollView>
 </ContentPage>
-    
-    
