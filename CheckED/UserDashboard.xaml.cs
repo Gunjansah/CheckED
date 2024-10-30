@@ -31,7 +31,7 @@ public partial class UserDashboard : ContentPage
 
     private void OnHamburgerClicked(object sender, EventArgs e)
     {
-        Sidebar.IsVisible = !Sidebar.IsVisible;
+        SidebarOptions.IsVisible = !SidebarOptions.IsVisible; // Toggle compact sidebar menu visibility
     }
 
     private void AccountSettings_Clicked(object sender, EventArgs e)
@@ -48,6 +48,22 @@ public partial class UserDashboard : ContentPage
     private void RegisterEvent(object sender, EventArgs e)
     {
 
+    }
+
+    private void OnDarkModeToggled(object sender, ToggledEventArgs e)
+    {
+
+    }
+
+    private async void OnMoreInfoClicked(object sender, EventArgs e)
+    {
+        // Get the selected event data from the button's BindingContext
+        var selectedEvent = (sender as Button)?.BindingContext as Event;
+        if (selectedEvent != null)
+        {
+            // Navigate to EventDetails page, passing the selected event as a parameter
+            await Navigation.PushAsync(new EventDetails(selectedEvent));
+        }
     }
 }
 

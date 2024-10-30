@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckED.EventDetails"
+             Title="Event Details">
+
+    <Grid>
+        <!-- Sidebar and Main Content Layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <StackLayout BackgroundColor="LightGray" Padding="10" Grid.RowSpan="2" Grid.Column="0">
+
+
+            <ImageButton Source="hamburger_icon.png" Clicked="OnHamburgerClicked"
+                         BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30"
+                         HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
+
+
+
+            <Image Source="checked.png" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10"     />
+            <Label Text="Username" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+
+
+
+            <StackLayout x:Name="SidebarOptions" IsVisible="False" Padding="5" Spacing="10">
+                <Button Text="Account Settings" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                <Button Text="Contact Us" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                <Button Text="Logout" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Main Content Area for Event Details -->
+        <ScrollView BackgroundColor="White" Grid.Row="1" Grid.Column="1" Padding="20">
+            <VerticalStackLayout Spacing="20">
+                <!-- Event Image -->
+                <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="200" HorizontalOptions="Center" />
+
+                <!-- Event Title -->
+                <Label Text="{Binding EventName}" FontAttributes="Bold" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
+
+                <!-- Event Details -->
+                <Frame Padding="20" BorderColor="LightGray" CornerRadius="10" BackgroundColor="White">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Event Date:" FontAttributes="Bold" TextColor="Black" />
+                        <Label Text="{Binding EventDate}" TextColor="Gray" />
+
+                        <Label Text="Event Description:" FontAttributes="Bold" TextColor="Black" />
+                        <Label Text="{Binding EventDescription}" TextColor="Gray" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Register Button -->
+                <Button Text="Register" BackgroundColor="Black" TextColor="White" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

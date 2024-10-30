@@ -25,7 +25,22 @@ public partial class CreatorDashboard : ContentPage
 
     }
 
-    private void BtnMoreInfo(object sender, EventArgs e)
+    private async void BtnMoreInfo(object sender, EventArgs e)
+    {
+        var selectedEvent = (sender as Button)?.BindingContext as Event;
+        if (selectedEvent != null)
+        {
+            // Navigate to EventDetails page, passing the selected event as a parameter
+            await Navigation.PushAsync(new EventDetails(selectedEvent));
+        }
+    }
+
+    private void OnHamburgerClicked(object sender, EventArgs e)
+    {
+        SidebarOptions.IsVisible = !SidebarOptions.IsVisible;
+    }
+
+    private void OnDarkModeToggled(object sender, ToggledEventArgs e)
     {
 
     }

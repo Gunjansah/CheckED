@@ -19,4 +19,14 @@ public partial class AddEvent : ContentPage
     {
 
     }
+
+    private void OnHamburgerClicked(object sender, EventArgs e)
+    {
+        SidebarOptions.IsVisible = !SidebarOptions.IsVisible;
+    }
+
+    private void OnDarkModeToggled(object sender, ToggledEventArgs e)
+    {
+
+    }
 }
