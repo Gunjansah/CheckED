@@ -12,7 +12,7 @@ public partial class LoginPage : ContentPage
         public LoginPage()
         {
             InitializeComponent();
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Users.db3");
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Users.db3");
             database = new DatabaseHelper(dbPath);
         }
 

@@ -10,8 +10,17 @@ namespace CheckED
 
         public DatabaseHelper(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<User>().Wait();
+            try
+            {
+                _database = new SQLiteAsyncConnection(dbPath);
+                _database.CreateTableAsync<User>().Wait();
+                Console.WriteLine("Database initialized and table created.");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Database initialization failed: {ex.Message}");
+            }
+            
         }
 
         public Task<int> SaveUserAsync(User user)

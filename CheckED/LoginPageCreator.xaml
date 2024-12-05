@@ -2,107 +2,107 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.LoginPageCreator"
-             Title="Login Page">
+             Title="Login Page"
+             BackgroundColor="Black">
+
     <ScrollView
-    Orientation="Both"
-    MinimumHeightRequest="600">
+        Orientation="Both"
+        MinimumHeightRequest="600">
 
         <VerticalStackLayout
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        Spacing="20"
-        Padding="30">
-
-            <Label 
-            Text="Login"
-            TextColor="White"
-            FontSize="28"
-            FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Margin="0,0,0,30"/>
-
-            <HorizontalStackLayout
-            HorizontalOptions="Center"
-            VerticalOptions="Start"
-            Spacing="45">
-
-                <Label 
-                Text="Email"
-                TextColor="White"
-                FontSize="20"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-
-                <Entry
-                    Placeholder="Your email address..."
-                    x:Name="UserEmailLogin"
-                    TextColor="Black"
-                    FontSize="15"
-                    BackgroundColor="White"
-                    WidthRequest="300"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Start" />
-
-            </HorizontalStackLayout>
-
-            <HorizontalStackLayout
-            HorizontalOptions="Center"
-            VerticalOptions="Start"
-            Spacing="10">
-
-                <Label 
-                Text="Password"
-                TextColor="White"
-                FontSize="20"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-
-                <Entry
-                    Placeholder="Your Password..."
-                    x:Name="UserPasswordLogin"
-                    IsPassword="True"
-                    TextColor="Black"
-                    FontSize="15"
-                    BackgroundColor="White"
-                    WidthRequest="300"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Start" />
-
-            </HorizontalStackLayout>
-
-            <Button
-            Text="Forgot Password?"
-            x:Name="ButtonForgotPassword"
-            Clicked="BtnForgotPassword"
-            Margin="0"
-            FontSize="14"
-            TextColor="White"
-            BackgroundColor="Transparent"
-            HorizontalOptions="Center" />
-
-            <Button
-            Text="Sign In"
-            x:Name="ButtonUserSignIn"
-            Clicked="BtnUserSignIn"
-            Margin="25"
-            FontSize="17"
-            TextColor="Black"
-            BackgroundColor="#ede8ff"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            CornerRadius="5"/>
+            Spacing="20"
+            Padding="30">
+
+            <Label 
+                Text="Login"
+                TextColor="White"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Margin="0,0,0,30"/>
+
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Spacing="45">
+
+                <Label 
+                    Text="Email"
+                    TextColor="White"
+                    FontSize="20"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+
+                <Entry
+                        Placeholder="Your email address..."
+                        x:Name="UserEmailLogin"
+                        TextColor="Black"
+                        FontSize="15"
+                        BackgroundColor="White"
+                        WidthRequest="300"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start" />
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Spacing="10">
+
+                <Label 
+                    Text="Password"
+                    TextColor="White"
+                    FontSize="20"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+
+                <Entry
+                        Placeholder="Your Password..."
+                        x:Name="UserPasswordLogin"
+                        IsPassword="True"
+                        TextColor="Black"
+                        FontSize="15"
+                        BackgroundColor="White"
+                        WidthRequest="300"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start" />
+
+            </HorizontalStackLayout>
 
             <Button
-            Text="Create An Account?"
-            x:Name="ButtonCreateAcc"
-            Clicked="BtnCreateAcc"
-            Margin="0,5"
-            FontSize="14"
-            TextColor="White"
-            BackgroundColor="Transparent"
-            HorizontalOptions="Center" />
+                Text="Forgot Password?"
+                x:Name="ButtonForgotPassword"
+                Clicked="BtnForgotPassword"
+                Margin="0"
+                FontSize="14"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center" />
+
+            <Button
+                Text="Sign In"
+                x:Name="ButtonUserSignIn"
+                Clicked="BtnUserSignIn"
+                Margin="25"
+                FontSize="17"
+                TextColor="Black"
+                BackgroundColor="#ede8ff"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                CornerRadius="5"/>
+
+            <Button
+                Text="Create An Account?"
+                x:Name="ButtonCreateAcc"
+                Clicked="BtnCreateAcc"
+                Margin="0,5"
+                FontSize="14"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center" />
         </VerticalStackLayout>
-        
     </ScrollView>
 </ContentPage>
-    
