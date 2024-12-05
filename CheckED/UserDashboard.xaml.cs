@@ -38,10 +38,10 @@ public partial class UserDashboard : ContentPage
         {
             var predefinedEvents = new List<Event>
     {
-        new Event { UserId = "1", EventName = "Music Concert", EventDate = "Oct 15, 2024", EventDescription = "Join us for an amazing music experience.", ImageUrl = "event1.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
-        new Event { UserId = "2", EventName = "Tech Conference", EventDate = "Nov 10, 2024", EventDescription = "Learn the latest trends in technology.", ImageUrl = "event2.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
-        new Event { UserId = "3", EventName = "Art Exhibition", EventDate = "Dec 5, 2024", EventDescription = "Explore beautiful artwork from local artists.", ImageUrl = "event3.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
-        new Event { UserId = "4", EventName = "Sports", EventDate = "Dec 5, 2024", EventDescription = "Enjoy a day of sports and activities.", ImageUrl = "event4.png", NumGoing = 0, RegistrationFormLink = "http://example.com" }
+        new Event { UserId = 1, EventName = "Music Concert", EventDate = "Oct 15, 2024", EventDescription = "Join us for an amazing music experience.", ImageUrl = "event1.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { UserId = 2, EventName = "Tech Conference", EventDate = "Nov 10, 2024", EventDescription = "Learn the latest trends in technology.", ImageUrl = "event2.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { UserId = 3, EventName = "Art Exhibition", EventDate = "Dec 5, 2024", EventDescription = "Explore beautiful artwork from local artists.", ImageUrl = "event3.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { UserId = 4, EventName = "Sports", EventDate = "Dec 5, 2024", EventDescription = "Enjoy a day of sports and activities.", ImageUrl = "event4.png", NumGoing = 0, RegistrationFormLink = "http://example.com" }
     };
 
             foreach (var evnt in predefinedEvents)

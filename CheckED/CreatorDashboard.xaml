@@ -75,10 +75,10 @@
                                 <DataTemplate>
                                     <Frame Padding="10" Margin="0,0,0,10" WidthRequest="800" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="LightGray">
                                         <VerticalStackLayout Spacing="10">
-                                            <Image Source="{Binding CImageUrl}" Aspect="AspectFit" HeightRequest="200" />
-                                            <Label Text="{Binding CEventName}" FontSize="20" FontAttributes="Bold" TextColor="Black" />
-                                            <Label Text="{Binding CEventDate}" FontSize="16" TextColor="Gray" />
-                                            <Label Text="{Binding CEventDescription}" FontSize="14" TextColor="Black" />
+                                            <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="200" />
+                                            <Label Text="{Binding EventName}" FontSize="20" FontAttributes="Bold" TextColor="Black" />
+                                            <Label Text="{Binding EventDate}" FontSize="16" TextColor="Gray" />
+                                            <Label Text="{Binding EventDescription}" FontSize="14" TextColor="Black" />
                                             <Button Text="More Info" Clicked="BtnMoreInfo" BackgroundColor="Black" TextColor="White" />
                                         </VerticalStackLayout>
                                     </Frame>

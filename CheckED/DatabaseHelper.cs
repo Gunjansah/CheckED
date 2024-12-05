@@ -44,7 +44,7 @@ namespace CheckED
             return _database.InsertAsync(evnt);
         }
 
-        public Task<List<Event>> GetEventsForUserAsync(string userId)
+        public Task<List<Event>> GetEventsForUserAsync(int userId)
         {
             return _database.Table<Event>().Where(e => e.UserId == userId).ToListAsync();
         }

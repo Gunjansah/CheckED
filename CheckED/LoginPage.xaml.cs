@@ -25,6 +25,9 @@ public partial class LoginPage : ContentPage
                 await DisplayAlert("Error", "Invalid login credentials", "OK");
                 return;
             }
+
+            UserSession.UserId = user.Id;
+
         await Navigation.PushAsync(new UserDashboard());
     }
 
