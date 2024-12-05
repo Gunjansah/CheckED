@@ -13,7 +13,13 @@ namespace CheckED
             try
             {
                 _database = new SQLiteAsyncConnection(dbPath);
+
                 _database.CreateTableAsync<User>().Wait();
+                _database.CreateTableAsync<Event>().Wait();
+
+
+
+
                 Console.WriteLine("Database initialized and table created.");
             }
             catch(Exception ex)
@@ -32,5 +38,17 @@ namespace CheckED
         {
             return _database.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
         }
+
+        public Task<int> SaveEventAsync(Event evnt)
+        {
+            return _database.InsertAsync(evnt);
+        }
+
+        public Task<List<Event>> GetEventsForUserAsync(string userId)
+        {
+            return _database.Table<Event>().Where(e => e.UserId == userId).ToListAsync();
+        }
+
+
     }
 }

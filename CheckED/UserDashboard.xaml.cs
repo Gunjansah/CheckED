@@ -5,15 +5,57 @@ namespace CheckED;
 public partial class UserDashboard : ContentPage
 {
     public ObservableCollection<Event> UpcomingEvents { get; set; }
+
+    DatabaseHelper database;
     public UserDashboard()
 	{
 		InitializeComponent();
         UpcomingEvents = new ObservableCollection<Event>
         {
-            new Event { ImageUrl = "event1.png", EventName = "Music Concert", EventDate = "Oct 15, 2024", EventDescription = "Join us for an amazing music experience. iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" },
-            new Event { ImageUrl = "event2.png", EventName = "Tech Conference", EventDate = "Nov 10, 2024", EventDescription = "Learn the latest trends in technology." },
-            new Event { ImageUrl = "event3.png", EventName = "Art Exhibition", EventDate = "Dec 5, 2024", EventDescription = "Explore beautiful artwork from local artists." },
-            new Event { ImageUrl = "event4.png", EventName = "Sports", EventDate = "Dec 5, 2024", EventDescription = "Explore beautiful artwork from local artists." }
+            new Event
+    {
+        Id = 1, // Auto-generated if using SQLite
+        UserId = "user1@example.com", // Replace with actual user ID or email
+        EventName = "Music Concert",
+        EventDate = "Oct 15, 2024",
+        EventDescription = "Join us for an amazing music experience.",
+        ImageUrl = "event1.png",
+        NumGoing = 0, // Default initial value
+        RegistrationFormLink = "https://example.com/register/music-concert" // Replace with actual link
+    },
+    new Event
+    {
+        Id = 2, // Auto-generated if using SQLite
+        UserId = "user2@example.com", // Replace with actual user ID or email
+        EventName = "Tech Conference",
+        EventDate = "Nov 10, 2024",
+        EventDescription = "Learn the latest trends in technology.",
+        ImageUrl = "event2.png",
+        NumGoing = 0, // Default initial value
+        RegistrationFormLink = "https://example.com/register/tech-conference" // Replace with actual link
+    },
+    new Event
+    {
+        Id = 3, // Auto-generated if using SQLite
+        UserId = "user3@example.com", // Replace with actual user ID or email
+        EventName = "Art Exhibition",
+        EventDate = "Dec 5, 2024",
+        EventDescription = "Explore beautiful artwork from local artists.",
+        ImageUrl = "event3.png",
+        NumGoing = 0, // Default initial value
+        RegistrationFormLink = "https://example.com/register/art-exhibition" // Replace with actual link
+    },
+    new Event
+    {
+        Id = 4, // Auto-generated if using SQLite
+        UserId = "user4@example.com", // Replace with actual user ID or email
+        EventName = "Sports Event",
+        EventDate = "Dec 5, 2024",
+        EventDescription = "Join us for an exciting sports event.",
+        ImageUrl = "event4.png",
+        NumGoing = 0, // Default initial value
+        RegistrationFormLink = "https://example.com/register/sports-event" // Replace with actual link
+    }
         };
 
         BindingContext = this;
@@ -67,10 +109,3 @@ public partial class UserDashboard : ContentPage
     }
 }
 
-public class Event
-{
-    public string ImageUrl { get; set; }
-    public string EventName { get; set; }
-    public string EventDate { get; set; }
-    public string EventDescription { get; set; }
-}
