@@ -4,62 +4,67 @@ namespace CheckED;
 
 public partial class UserDashboard : ContentPage
 {
-    public ObservableCollection<Event> UpcomingEvents { get; set; }
 
+    public ObservableCollection<Event> UpcomingEvents { get; set; }
     DatabaseHelper database;
     public UserDashboard()
 	{
 		InitializeComponent();
-        UpcomingEvents = new ObservableCollection<Event>
-        {
-            new Event
-    {
-        Id = 1, // Auto-generated if using SQLite
-        UserId = "user1@example.com", // Replace with actual user ID or email
-        EventName = "Music Concert",
-        EventDate = "Oct 15, 2024",
-        EventDescription = "Join us for an amazing music experience.",
-        ImageUrl = "event1.png",
-        NumGoing = 0, // Default initial value
-        RegistrationFormLink = "https://example.com/register/music-concert" // Replace with actual link
-    },
-    new Event
-    {
-        Id = 2, // Auto-generated if using SQLite
-        UserId = "user2@example.com", // Replace with actual user ID or email
-        EventName = "Tech Conference",
-        EventDate = "Nov 10, 2024",
-        EventDescription = "Learn the latest trends in technology.",
-        ImageUrl = "event2.png",
-        NumGoing = 0, // Default initial value
-        RegistrationFormLink = "https://example.com/register/tech-conference" // Replace with actual link
-    },
-    new Event
-    {
-        Id = 3, // Auto-generated if using SQLite
-        UserId = "user3@example.com", // Replace with actual user ID or email
-        EventName = "Art Exhibition",
-        EventDate = "Dec 5, 2024",
-        EventDescription = "Explore beautiful artwork from local artists.",
-        ImageUrl = "event3.png",
-        NumGoing = 0, // Default initial value
-        RegistrationFormLink = "https://example.com/register/art-exhibition" // Replace with actual link
-    },
-    new Event
-    {
-        Id = 4, // Auto-generated if using SQLite
-        UserId = "user4@example.com", // Replace with actual user ID or email
-        EventName = "Sports Event",
-        EventDate = "Dec 5, 2024",
-        EventDescription = "Join us for an exciting sports event.",
-        ImageUrl = "event4.png",
-        NumGoing = 0, // Default initial value
-        RegistrationFormLink = "https://example.com/register/sports-event" // Replace with actual link
-    }
-        };
+        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Users.db3");
+        database = new DatabaseHelper(dbPath);
+
+        
+        UpcomingEvents = new ObservableCollection<Event>();
+       
+
+        InsertPredefinedEventsAsync();
 
         BindingContext = this;
+
     }
+
+    public async Task InsertPredefinedEventsAsync()
+    {
+        var existingEvents = await database.GetAllEventsAsync();
+        if (existingEvents != null && existingEvents.Count > 0)
+        {
+            Console.WriteLine("Events already exist. Skipping insertion.");
+           
+        }
+        else
+        {
+            var predefinedEvents = new List<Event>
+    {
+        new Event { UserId = "1", EventName = "Music Concert", EventDate = "Oct 15, 2024", EventDescription = "Join us for an amazing music experience.", ImageUrl = "event1.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { UserId = "2", EventName = "Tech Conference", EventDate = "Nov 10, 2024", EventDescription = "Learn the latest trends in technology.", ImageUrl = "event2.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { UserId = "3", EventName = "Art Exhibition", EventDate = "Dec 5, 2024", EventDescription = "Explore beautiful artwork from local artists.", ImageUrl = "event3.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { UserId = "4", EventName = "Sports", EventDate = "Dec 5, 2024", EventDescription = "Enjoy a day of sports and activities.", ImageUrl = "event4.png", NumGoing = 0, RegistrationFormLink = "http://example.com" }
+    };
+
+            foreach (var evnt in predefinedEvents)
+            {
+
+                await database.SaveEventAsync(evnt);
+            }
+
+            Console.WriteLine("Predefined events inserted successfully.");
+        }
+
+
+        var events = await database.GetAllEventsAsync();
+
+        UpcomingEvents.Clear();
+
+        foreach (var evnt in events)
+        {
+            UpcomingEvents.Add(evnt);
+        }
+
+
+    }
+
+
+
 
     private void OnToggleDarkModeClicked(object sender, EventArgs e)
     {

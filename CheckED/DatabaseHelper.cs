@@ -54,6 +54,11 @@ namespace CheckED
             return _database.UpdateAsync(evnt);
         }
 
+        public Task<List<Event>> GetAllEventsAsync()
+        {
+            return _database.Table<Event>().ToListAsync();
+        }
+
 
     }
 }
