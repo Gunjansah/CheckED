@@ -87,9 +87,25 @@ public partial class UserDashboard : ContentPage
         // Logic for check-in
     }
 
-    private void RegisterEvent(object sender, EventArgs e)
+    private async void RegisterEvent(object sender, EventArgs e)
     {
+        var selectedEvent = (sender as Button)?.BindingContext as Event;
+        if (selectedEvent != null)
+        {
+            try
+            {
+          
+                selectedEvent.NumGoing++;
 
+                await database.UpdateEventAsync(selectedEvent);
+
+                await DisplayAlert("Success", $"You have registered for {selectedEvent.EventName}!", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to register for the event: {ex.Message}", "OK");
+            }
+        }
     }
 
     private void OnDarkModeToggled(object sender, ToggledEventArgs e)

@@ -49,6 +49,11 @@ namespace CheckED
             return _database.Table<Event>().Where(e => e.UserId == userId).ToListAsync();
         }
 
+        public Task<int> UpdateEventAsync(Event evnt)
+        {
+            return _database.UpdateAsync(evnt);
+        }
+
 
     }
 }
