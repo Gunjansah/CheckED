@@ -1,3 +1,5 @@
+using CloudKit;
+
 namespace CheckED;
 
 public partial class EventDetails : ContentPage
@@ -8,9 +10,25 @@ public partial class EventDetails : ContentPage
         BindingContext = selectedEvent;
     }
 
-    private void OnRegisterClicked(object sender, EventArgs e)
+    private async void OnRegisterClicked(object sender, EventArgs e)
     {
+        
+            var selectedEvent = (sender as Button)?.BindingContext as Event;
+            if (selectedEvent != null)
+            {
+                try
+                {
+                    selectedEvent.NumGoing++; 
 
+
+                    await DisplayAlert("Success", $"You have registered for {selectedEvent.EventName}!", "OK");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", $"Failed to register for the event: {ex.Message}", "OK");
+                }
+            }
+        
     }
 
     private void OnCheckInClicked(object sender, EventArgs e)

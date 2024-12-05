@@ -93,7 +93,7 @@
                 <VerticalStackLayout Padding="20" Spacing="20" Grid.Column="1">
                     <Label Text="Registered Events" FontAttributes="Bold" FontSize="18" TextColor="Black" />
                     <ScrollView>
-                        <CollectionView ItemsSource="{Binding UpcomingEvents}">
+                        <CollectionView ItemsSource="{Binding RegisteredEvents}">
                             <CollectionView.ItemsLayout>
                                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
                             </CollectionView.ItemsLayout>
@@ -106,7 +106,7 @@
                                             <Label Text="{Binding EventDate}" FontSize="16" TextColor="Gray" />
                                             <Label Text="{Binding EventDescription}" FontSize="14" TextColor="Black" />
                                             <Button Text="Check In" BackgroundColor="Black" TextColor="White" />
-                                            <Button Text="Rate Us" BackgroundColor="Black" TextColor="White" />
+                                            <Button Text="Unregister" BackgroundColor="Black" TextColor="White" Clicked="BtnUnregister" />
                                         </VerticalStackLayout>
                                     </Frame>
                                 </DataTemplate>

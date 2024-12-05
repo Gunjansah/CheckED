@@ -6,6 +6,8 @@ public partial class UserDashboard : ContentPage
 {
 
     public ObservableCollection<Event> UpcomingEvents { get; set; }
+    public ObservableCollection<Event> RegisteredEvents { get; set; }
+
     DatabaseHelper database;
     public UserDashboard()
 	{
@@ -15,7 +17,8 @@ public partial class UserDashboard : ContentPage
 
         
         UpcomingEvents = new ObservableCollection<Event>();
-       
+        RegisteredEvents = new ObservableCollection<Event>();
+
 
         InsertPredefinedEventsAsync();
 
@@ -66,14 +69,64 @@ public partial class UserDashboard : ContentPage
 
 
 
-    private void OnToggleDarkModeClicked(object sender, EventArgs e)
+
+        private void OnToggleDarkModeClicked(object sender, EventArgs e)
     {
 
     }
 
-    private void BtnRegister(object sender, EventArgs e)
+    private async void BtnRegister(object sender, EventArgs e)
     {
+        var selectedEvent = (sender as Button)?.BindingContext as Event;
+        if (selectedEvent != null)
+        {
+            try
+            {
+                selectedEvent.NumGoing++; // Update the registration count for the event
 
+                // Update the event in the database
+                await database.UpdateEventAsync(selectedEvent);
+
+                // Add the event to the RegisteredEvents collection
+                RegisteredEvents.Add(selectedEvent);
+
+                // Optionally, you can remove it from UpcomingEvents if needed
+                UpcomingEvents.Remove(selectedEvent);
+
+                await DisplayAlert("Success", $"You have registered for {selectedEvent.EventName}!", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to register for the event: {ex.Message}", "OK");
+            }
+        }
+    }
+
+    private async void BtnUnregister(object sender, EventArgs e)
+    {
+        var selectedEvent = (sender as Button)?.BindingContext as Event;
+        if (selectedEvent != null)
+        {
+            try
+            {
+                selectedEvent.NumGoing--; // Update the registration count for the event
+
+                // Update the event in the database
+                await database.UpdateEventAsync(selectedEvent);
+
+                // Add the event to the RegisteredEvents collection
+                UpcomingEvents.Add(selectedEvent);
+
+                // Optionally, you can remove it from UpcomingEvents if needed
+                RegisteredEvents.Remove(selectedEvent);
+
+                await DisplayAlert("Success", $"You have  unregistered from {selectedEvent.EventName}!", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to register for the event: {ex.Message}", "OK");
+            }
+        }
     }
 
     private void OnHamburgerClicked(object sender, EventArgs e)
@@ -92,25 +145,9 @@ public partial class UserDashboard : ContentPage
         // Logic for check-in
     }
 
-    private async void RegisterEvent(object sender, EventArgs e)
+    private void RegisterEvent(object sender, EventArgs e)
     {
-        var selectedEvent = (sender as Button)?.BindingContext as Event;
-        if (selectedEvent != null)
-        {
-            try
-            {
-          
-                selectedEvent.NumGoing++;
-
-                await database.UpdateEventAsync(selectedEvent);
-
-                await DisplayAlert("Success", $"You have registered for {selectedEvent.EventName}!", "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", $"Failed to register for the event: {ex.Message}", "OK");
-            }
-        }
+        
     }
 
     private void OnDarkModeToggled(object sender, ToggledEventArgs e)
