@@ -25,14 +25,13 @@ public partial class CreatorDashboard : ContentPage
     public async Task InsertYourEventsAsync()
     {
 
-
         var events = await database.GetAllEventsAsync();
 
         YourEvents.Clear();
 
         foreach (var evnt in events)
         {
-            if ( evnt.UserId == UserSession.UserId)
+            if ( evnt.CreatorId == UserSession.UserId)
             {
                 YourEvents.Add(evnt);
             }

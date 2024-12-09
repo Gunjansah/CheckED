@@ -21,6 +21,7 @@ public partial class UserDashboard : ContentPage
 
 
         InsertPredefinedEventsAsync();
+        LoadRegisteredEventsAsync();
 
         BindingContext = this;
 
@@ -38,10 +39,10 @@ public partial class UserDashboard : ContentPage
         {
             var predefinedEvents = new List<Event>
     {
-        new Event { UserId = 1, EventName = "Music Concert", EventDate = "Oct 15, 2024", EventDescription = "Join us for an amazing music experience.", ImageUrl = "event1.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
-        new Event { UserId = 2, EventName = "Tech Conference", EventDate = "Nov 10, 2024", EventDescription = "Learn the latest trends in technology.", ImageUrl = "event2.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
-        new Event { UserId = 3, EventName = "Art Exhibition", EventDate = "Dec 5, 2024", EventDescription = "Explore beautiful artwork from local artists.", ImageUrl = "event3.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
-        new Event { UserId = 4, EventName = "Sports", EventDate = "Dec 5, 2024", EventDescription = "Enjoy a day of sports and activities.", ImageUrl = "event4.png", NumGoing = 0, RegistrationFormLink = "http://example.com" }
+        new Event { CreatorId = 1, EventName = "Music Concert", EventDate = "Oct 15, 2024", EventDescription = "Join us for an amazing music experience.", ImageUrl = "event1.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { CreatorId = 2, EventName = "Tech Conference", EventDate = "Nov 10, 2024", EventDescription = "Learn the latest trends in technology.", ImageUrl = "event2.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { CreatorId = 3, EventName = "Art Exhibition", EventDate = "Dec 5, 2024", EventDescription = "Explore beautiful artwork from local artists.", ImageUrl = "event3.png", NumGoing = 0, RegistrationFormLink = "http://example.com" },
+        new Event { CreatorId = 4, EventName = "Sports", EventDate = "Dec 5, 2024", EventDescription = "Enjoy a day of sports and activities.", ImageUrl = "event4.png", NumGoing = 0, RegistrationFormLink = "http://example.com" }
     };
 
             foreach (var evnt in predefinedEvents)
@@ -56,21 +57,45 @@ public partial class UserDashboard : ContentPage
 
         var events = await database.GetAllEventsAsync();
 
+        var userId = UserSession.UserId;
+        var registeredEvents = await database.GetRegisteredEventsUserAsync(userId);
+
         UpcomingEvents.Clear();
 
         foreach (var evnt in events)
         {
-            UpcomingEvents.Add(evnt);
+
+            if (!registeredEvents.Any(re => re.EventId == evnt.EventId))
+            {
+                UpcomingEvents.Add(evnt);
+            }
         }
 
 
+    }
+
+    public async Task LoadRegisteredEventsAsync()
+    {
+    
+        int userId = UserSession.UserId; 
+
+        var registeredEvents = await database.GetRegisteredEventsUserAsync(userId);
+
+        RegisteredEvents.Clear();
+
+        foreach (var evnt in registeredEvents)
+        {
+            RegisteredEvents.Add(evnt);
+        }
     }
 
 
 
 
 
-        private void OnToggleDarkModeClicked(object sender, EventArgs e)
+
+
+    private void OnToggleDarkModeClicked(object sender, EventArgs e)
     {
 
     }
@@ -82,15 +107,18 @@ public partial class UserDashboard : ContentPage
         {
             try
             {
-                selectedEvent.NumGoing++; // Update the registration count for the event
+                selectedEvent.NumGoing++; 
 
-                // Update the event in the database
                 await database.UpdateEventAsync(selectedEvent);
 
-                // Add the event to the RegisteredEvents collection
+              
+                await database.UpdateUserRegisteredEventsAsync(UserSession.UserId, selectedEvent.EventId, true);
+
+
+
                 RegisteredEvents.Add(selectedEvent);
 
-                // Optionally, you can remove it from UpcomingEvents if needed
+
                 UpcomingEvents.Remove(selectedEvent);
 
                 await DisplayAlert("Success", $"You have registered for {selectedEvent.EventName}!", "OK");
@@ -109,15 +137,17 @@ public partial class UserDashboard : ContentPage
         {
             try
             {
-                selectedEvent.NumGoing--; // Update the registration count for the event
+                selectedEvent.NumGoing--; 
 
-                // Update the event in the database
+          
                 await database.UpdateEventAsync(selectedEvent);
 
-                // Add the event to the RegisteredEvents collection
+                await database.UpdateUserRegisteredEventsAsync(UserSession.UserId, selectedEvent.EventId, false);
+
+              
                 UpcomingEvents.Add(selectedEvent);
 
-                // Optionally, you can remove it from UpcomingEvents if needed
+            
                 RegisteredEvents.Remove(selectedEvent);
 
                 await DisplayAlert("Success", $"You have  unregistered from {selectedEvent.EventName}!", "OK");
@@ -131,7 +161,7 @@ public partial class UserDashboard : ContentPage
 
     private void OnHamburgerClicked(object sender, EventArgs e)
     {
-        SidebarOptions.IsVisible = !SidebarOptions.IsVisible; // Toggle compact sidebar menu visibility
+        SidebarOptions.IsVisible = !SidebarOptions.IsVisible; 
     }
 
     private void AccountSettings_Clicked(object sender, EventArgs e)
@@ -157,11 +187,11 @@ public partial class UserDashboard : ContentPage
 
     private async void OnMoreInfoClicked(object sender, EventArgs e)
     {
-        // Get the selected event data from the button's BindingContext
+      
         var selectedEvent = (sender as Button)?.BindingContext as Event;
         if (selectedEvent != null)
         {
-            // Navigate to EventDetails page, passing the selected event as a parameter
+          
             await Navigation.PushAsync(new EventDetails(selectedEvent));
         }
     }
