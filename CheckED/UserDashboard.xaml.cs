@@ -8,6 +8,10 @@ public partial class UserDashboard : ContentPage
     public ObservableCollection<Event> UpcomingEvents { get; set; }
     public ObservableCollection<Event> RegisteredEvents { get; set; }
 
+    public ObservableCollection<Event> SearchedUpcomingEvents { get; set; }
+
+    public ObservableCollection<Event> SearchedRegisteredEvents { get; set; }
+
     DatabaseHelper database;
     public UserDashboard()
 	{
@@ -18,6 +22,9 @@ public partial class UserDashboard : ContentPage
         
         UpcomingEvents = new ObservableCollection<Event>();
         RegisteredEvents = new ObservableCollection<Event>();
+
+        SearchedUpcomingEvents = new ObservableCollection<Event>();
+        SearchedRegisteredEvents = new ObservableCollection<Event>();
 
 
         InsertPredefinedEventsAsync();
@@ -71,6 +78,10 @@ public partial class UserDashboard : ContentPage
             }
         }
 
+        SearchedUpcomingEvents = new ObservableCollection<Event>(UpcomingEvents);
+
+        OnPropertyChanged(nameof(SearchedUpcomingEvents));
+
 
     }
 
@@ -87,6 +98,36 @@ public partial class UserDashboard : ContentPage
         {
             RegisteredEvents.Add(evnt);
         }
+
+        SearchedRegisteredEvents = new ObservableCollection<Event>(RegisteredEvents);
+
+        OnPropertyChanged(nameof(SearchedRegisteredEvents));
+
+    }
+
+    private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+    {
+        string searchText = e.NewTextValue?.ToLower() ?? string.Empty;
+
+        if (string.IsNullOrEmpty(searchText))
+        {
+            SearchedUpcomingEvents = new ObservableCollection<Event>(UpcomingEvents);
+            SearchedRegisteredEvents = new ObservableCollection<Event>(RegisteredEvents);
+        }
+        else
+        {
+
+            // Search Upcoming Events
+            var filteredUpcoming = UpcomingEvents.Where(evnt => evnt.EventName.ToLower().Contains(searchText)).ToList();
+            SearchedUpcomingEvents = new ObservableCollection<Event>(filteredUpcoming);
+
+            // Search Registered Events
+            var filteredRegistered = RegisteredEvents.Where(evnt => evnt.EventName.ToLower().Contains(searchText)).ToList();
+            SearchedRegisteredEvents = new ObservableCollection<Event>(filteredRegistered);
+        }
+
+        OnPropertyChanged(nameof(SearchedUpcomingEvents));
+        OnPropertyChanged(nameof(SearchedRegisteredEvents));
     }
 
 
@@ -117,9 +158,14 @@ public partial class UserDashboard : ContentPage
 
 
                 RegisteredEvents.Add(selectedEvent);
+                SearchedRegisteredEvents.Add(selectedEvent);
+
+                OnPropertyChanged(nameof(RegisteredEvents));
+                OnPropertyChanged(nameof(SearchedRegisteredEvents));
 
 
                 UpcomingEvents.Remove(selectedEvent);
+                SearchedUpcomingEvents.Remove(selectedEvent);
 
                 await DisplayAlert("Success", $"You have registered for {selectedEvent.EventName}!", "OK");
             }
@@ -146,9 +192,14 @@ public partial class UserDashboard : ContentPage
 
               
                 UpcomingEvents.Add(selectedEvent);
+                SearchedUpcomingEvents.Add(selectedEvent);
 
-            
+                OnPropertyChanged(nameof(UpcomingEvents));
+                OnPropertyChanged(nameof(SearchedUpcomingEvents));
+
+
                 RegisteredEvents.Remove(selectedEvent);
+                SearchedRegisteredEvents.Remove(selectedEvent);
 
                 await DisplayAlert("Success", $"You have  unregistered from {selectedEvent.EventName}!", "OK");
             }
