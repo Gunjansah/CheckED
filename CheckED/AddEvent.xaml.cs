@@ -1,16 +1,66 @@
+using System.Text;
+using Microsoft.Maui.Controls;
+using System;
+using System.Security.Cryptography;
+using System.ComponentModel;
+
+
 namespace CheckED;
 
 public partial class AddEvent : ContentPage
 {
-	public AddEvent()
+    DatabaseHelper database;
+    public AddEvent()
 	{
 		InitializeComponent();
-	}
+        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Users.db3");
+        database = new DatabaseHelper(dbPath);
+
+       
+    }
 
 
-    private void AddTheEvent(object sender, EventArgs e)
+    async void AddTheEvent(object sender, EventArgs e)
     {
+        try
+        {
+            
+            string eventName = EventName.Text; // Event Name Entry
+            string eventMediaFile = EventMediaFile.Text; // Media File Path Entry
+            string eventDescription = EventDescription.Text; // Event Description Editor
+            string eventFormLink = EventFormLink.Text; // Registration Form Link Entry
+            string eventDate = EventDatePicker.Date.ToString("MMM dd, yyyy"); // Example static date; replace with actual date picker if available
+            int creatorId = UserSession.UserId; // Replace with the current logged-in user's ID
 
+            // Validate the inputs
+            if (string.IsNullOrWhiteSpace(eventName) || string.IsNullOrWhiteSpace(eventDescription))
+            {
+                await DisplayAlert("Error", "Please fill in all required fields.", "OK");
+                return;
+            }
+
+            var newEvent = new Event
+            {
+                CreatorId = creatorId,
+                EventName = eventName,
+                EventDate = eventDate,
+                EventDescription = eventDescription,
+                ImageUrl = eventMediaFile,
+                NumGoing = 0,
+                RegistrationFormLink = eventFormLink
+            };
+
+            // Save the event to the database
+            await database.SaveEventAsync(newEvent);
+
+            // Provide feedback to the user
+            await DisplayAlert("Success", "Event added successfully!", "OK");
+            await Navigation.PushAsync(new CreatorDashboard());
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Failed to add event: {ex.Message}", "OK");
+        }
     }
 
 
