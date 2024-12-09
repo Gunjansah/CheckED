@@ -13,10 +13,12 @@ namespace CheckED;
         public CreateAccount()
         {
             InitializeComponent();
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Users.db3");
-       
+            
+            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Users.db3");
 
-        database = new DatabaseHelper(dbPath);
+            database = new DatabaseHelper(dbPath);
+            Console.WriteLine(dbPath);
+            Console.WriteLine($"Database Path: {dbPath}");
         }
 
         async void BtnCreateAccount(object sender, EventArgs e)
