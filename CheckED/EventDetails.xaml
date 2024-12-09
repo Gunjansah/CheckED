@@ -65,7 +65,7 @@
                     <Button Text="Unregister" x:Name="Unregister" BackgroundColor="Black" TextColor="White" HorizontalOptions="Center" Clicked="BtnUnregister" IsVisible="False"/>
                     <Button x:Name="CheckInButton" Text="Check In" BackgroundColor="Black" TextColor="White" />
                     <Button x:Name="ShowQRButton" Text="Show QR" BackgroundColor="Black" TextColor="White" />
-                    <Button x:Name="EditButton" Text="Edit" BackgroundColor="Black" TextColor="White" IsVisible="False" />
+                    <Button x:Name="EditButton" Text="Edit" BackgroundColor="Black" TextColor="White" IsVisible="False" Clicked="OnEditEventClicked" />
                 </StackLayout>
 
             </VerticalStackLayout>

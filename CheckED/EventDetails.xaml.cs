@@ -115,9 +115,14 @@ public partial class EventDetails : ContentPage
 
     }
 
-    private void OnEditEventClicked(object sender, EventArgs e)
+    private async void OnEditEventClicked(object sender, EventArgs e)
     {
+        var selectedEvent = (sender as Button)?.BindingContext as Event;
+        if (selectedEvent != null)
+        {
 
+            await Navigation.PushAsync(new EditEvent(selectedEvent));
+        }
     }
 
     private void OnHamburgerClicked(object sender, EventArgs e)

@@ -80,7 +80,7 @@
                 <!-- DatePicker Field -->
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Event Date:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
-                    <DatePicker x:Name="EventDatePicker" Format="D" TextColor="Black" BackgroundColor="White" />
+                    <DatePicker x:Name="EventDatePicker" Format="dddd, MMMM dd, yyyy" TextColor="White" BackgroundColor="Black" />
                 </HorizontalStackLayout>
 
                 <!-- Registration Form Link Field -->
