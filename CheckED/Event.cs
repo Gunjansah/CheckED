@@ -10,9 +10,9 @@ namespace CheckED
     public class Event
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; } 
+        public int EventId { get; set; } 
 
-        public int UserId { get; set; } 
+        public int CreatorId { get; set; } 
 
         public string EventName { get; set; } 
 

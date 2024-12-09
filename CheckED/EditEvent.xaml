@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckED.EditEvent"
+             Title="EditEvent">
+
+    <Grid>
+            <!-- Define Row and Column Layout -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Header with dark mode toggle and search bar -->
+                <RowDefinition Height="*" />
+                <!-- Main content area -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <!-- Sidebar -->
+                <ColumnDefinition Width="*" />
+                <!-- Main content area -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Sidebar with Hamburger Icon, Logo, and Username -->
+            <StackLayout BackgroundColor="LightGray" Padding="10" Grid.RowSpan="2" Grid.Column="0">
+                <!-- Hamburger Icon -->
+                <ImageButton Source="hamburger_icon.png" Clicked="OnHamburgerClicked"
+                         BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30"
+                         HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
+
+                <!-- Logo and Username Display -->
+                <Image Source="checked.png" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10" />
+                <Label Text="Username" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
+
+                <!-- Compact Sidebar Options (initially hidden) -->
+                <StackLayout x:Name="SidebarOptions" IsVisible="False" Padding="5" Spacing="10">
+                    <Button Text="Account Settings" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                    <Button Text="Contact Us" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                    <Button Text="Logout" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Header Row: Search Bar and Dark Mode Toggle (optional for consistency) -->
+            <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Spacing="5">
+                <Entry Placeholder="Search events" TextColor="Black" FontSize="15" WidthRequest="300" BackgroundColor="LightGray" HorizontalOptions="StartAndExpand" />
+                <HorizontalStackLayout VerticalOptions="Center" Spacing="0">
+                    <Switch x:Name="DarkModeToggle" Toggled="OnDarkModeToggled" Margin="-10,0,0,0"/>
+                    <Label Text="Dark Mode" VerticalOptions="Center" TextColor="Black" Margin="-100,0,0,0" />
+                </HorizontalStackLayout>
+            </StackLayout>
+
+            <!-- Main Content Area for Adding an Event -->
+            <ScrollView BackgroundColor="White" Grid.Row="1" Grid.Column="1" Padding="20">
+                <VerticalStackLayout Padding="20" Spacing="20">
+                    <Label Text="Add Event" FontAttributes="Bold" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
+
+                    <!-- Event Name Field -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Event Name:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                        <Border Stroke="Black" BackgroundColor="White">
+                            <Entry Placeholder="Enter event name"  x:Name="EventName" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
+                        </Border>
+                    </HorizontalStackLayout>
+
+                    <!-- Media Field -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Media:" TextColor="Black" FontSize="20" VerticalOptions="Center" Margin="60,0,0,0"/>
+                        <Border Stroke="Black" BackgroundColor="White">
+                            <Entry Placeholder="File Path" x:Name="EventMediaFile" WidthRequest="200" FontSize="15"  BackgroundColor="White" TextColor="Black" />
+                        </Border>
+                        <Button Text="Browse.." BackgroundColor="Black" TextColor="White" Clicked="BrowseFiles" />
+                    </HorizontalStackLayout>
+
+                    <!-- Event Description Field -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Event Description:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                        <Border Stroke="Black" BackgroundColor="White" WidthRequest="300" HeightRequest="150">
+                            <Editor Placeholder="Enter the event description here..." x:Name="EventDescription" FontSize="15" BackgroundColor="White" TextColor="Black" AutoSize="TextChanges" MaxLength="500" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        </Border>
+                    </HorizontalStackLayout>
+
+                    <!-- DatePicker Field -->
+                    <HorizontalStackLayout Spacing="10">
+                    <Label Text="Event Date:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                    <DatePicker x:Name="EventDatePicker" Format="dddd, MMMM dd, yyyy" TextColor="White" BackgroundColor="Black" />
+
+                </HorizontalStackLayout>
+
+                    <!-- Registration Form Link Field -->
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Registration Form Link:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                        <Border Stroke="Black" BackgroundColor="White">
+                            <Entry Placeholder="Enter your link" x:Name="EventFormLink" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
+                        </Border>
+                    </HorizontalStackLayout>
+
+                    <!-- Add Event Button -->
+                    <Button Text="Save Changes" x:Name="EdittheEvent" Clicked="EditTheEvent" BackgroundColor="Black" TextColor="White" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20,0,0" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+  
+</ContentPage>

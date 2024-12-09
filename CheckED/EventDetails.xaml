@@ -59,7 +59,15 @@
                 </Frame>
 
                 <!-- Register Button -->
-                <Button Text="Register" BackgroundColor="Black" TextColor="White" HorizontalOptions="Center" />
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                    <Button Text="Register" x:Name="Register" BackgroundColor="Black" TextColor="White" HorizontalOptions="Center" Clicked="BtnRegister" IsVisible="False"/>
+                    <Button Text="Unregister" x:Name="Unregister" BackgroundColor="Black" TextColor="White" HorizontalOptions="Center" Clicked="BtnUnregister" IsVisible="False"/>
+                    <Button x:Name="CheckInButton" Text="Check In" BackgroundColor="Black" TextColor="White" />
+                    <Button x:Name="ShowQRButton" Text="Show QR" BackgroundColor="Black" TextColor="White" />
+                    <Button x:Name="EditButton" Text="Edit" BackgroundColor="Black" TextColor="White" IsVisible="False" Clicked="OnEditEventClicked" />
+                </StackLayout>
+
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

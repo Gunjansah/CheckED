@@ -94,6 +94,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="EditEvent.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="EventDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

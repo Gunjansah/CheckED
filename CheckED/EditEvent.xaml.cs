@@ -7,51 +7,39 @@ using System.ComponentModel;
 
 namespace CheckED;
 
-public partial class AddEvent : ContentPage
+public partial class EditEvent : ContentPage
 {
     DatabaseHelper database;
-    public AddEvent()
-	{
-		InitializeComponent();
+    private Event editingEvent;
+    public EditEvent(Event eventToEdit)
+    {
+        InitializeComponent();
         string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Users.db3");
         database = new DatabaseHelper(dbPath);
 
-       
+        editingEvent = eventToEdit;
+        DateTime eventDate = DateTime.ParseExact(editingEvent.EventDate, "MMM dd, yyyy", System.Globalization.CultureInfo.InvariantCulture);
+
+
+        EventName.Text = editingEvent.EventName;
+        EventDescription.Text = editingEvent.EventDescription;
+        EventFormLink.Text = editingEvent.RegistrationFormLink;
+        EventMediaFile.Text = editingEvent.ImageUrl;
+        EventDatePicker.Date = eventDate;
+        
+
     }
 
 
-    async void AddTheEvent(object sender, EventArgs e)
+    async void EditTheEvent(object sender, EventArgs e)
     {
         try
         {
-            
-            string eventName = EventName.Text; // Event Name Entry
-            string eventMediaFile = EventMediaFile.Text; // Media File Path Entry
-            string eventDescription = EventDescription.Text; // Event Description Editor
-            string eventFormLink = EventFormLink.Text; // Registration Form Link Entry
-            string eventDate = EventDatePicker.Date.ToString("MMM dd, yyyy"); // Example static date; replace with actual date picker if available
-            int creatorId = UserSession.UserId; // Replace with the current logged-in user's ID
+            editingEvent.EventName = EventName.Text;
+            editingEvent.EventDate = EventDatePicker.Date.ToString("MMM dd yyyy"); 
+            editingEvent.EventDescription = EventDescription.Text;
 
-            // Validate the inputs
-            if (string.IsNullOrWhiteSpace(eventName) || string.IsNullOrWhiteSpace(eventDescription))
-            {
-                await DisplayAlert("Error", "Please fill in all required fields.", "OK");
-                return;
-            }
-
-            var newEvent = new Event
-            {
-                CreatorId = creatorId,
-                EventName = eventName,
-                EventDate = eventDate,
-                EventDescription = eventDescription,
-                ImageUrl = eventMediaFile,
-                NumGoing = 0,
-                RegistrationFormLink = eventFormLink
-            };
-
-            // Save the event to the database
-            await database.SaveEventAsync(newEvent);
+            await database.UpdateEventAsync(editingEvent);
 
             // Provide feedback to the user
             await DisplayAlert("Success", "Event added successfully!", "OK");
@@ -70,7 +58,7 @@ public partial class AddEvent : ContentPage
     {
         try
         {
-     
+
             var file = await FilePicker.PickAsync(new PickOptions
             {
                 PickerTitle = "Select an image",
@@ -79,10 +67,10 @@ public partial class AddEvent : ContentPage
 
             if (file != null)
             {
-                string fileName = file.FileName;  
-                string filePath = Path.Combine(FileSystem.AppDataDirectory, fileName);  
+                string fileName = file.FileName;
+                string filePath = Path.Combine(FileSystem.AppDataDirectory, fileName);
 
-            
+
                 using (var stream = await file.OpenReadAsync())
                 using (var newFile = File.OpenWrite(filePath))
                 {
@@ -112,4 +100,6 @@ public partial class AddEvent : ContentPage
     {
 
     }
+
+
 }

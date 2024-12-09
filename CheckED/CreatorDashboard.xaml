@@ -42,7 +42,7 @@
 
         
         <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Spacing="5">
-            <Entry Placeholder="Search your events" TextColor="Black" FontSize="15" WidthRequest="300" BackgroundColor="LightGray" HorizontalOptions="StartAndExpand" />
+            <Entry Placeholder="Search your events" x:Name="SearchEvents" TextColor="Black" FontSize="15" WidthRequest="300" BackgroundColor="LightGray" HorizontalOptions="StartAndExpand" TextChanged="OnSearchTextChanged"/>
 
             
             <HorizontalStackLayout VerticalOptions="Center" Spacing="0">
@@ -67,7 +67,7 @@
 
                     
                     <ScrollView>
-                        <CollectionView ItemsSource="{Binding YourEvents}">
+                        <CollectionView ItemsSource="{Binding SearchedEvents}">
                             <CollectionView.ItemsLayout>
                                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
                             </CollectionView.ItemsLayout>

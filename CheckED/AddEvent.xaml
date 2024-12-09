@@ -56,7 +56,7 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Event Name:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
                     <Border Stroke="Black" BackgroundColor="White">
-                        <Entry Placeholder="Enter event name" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
+                        <Entry Placeholder="Enter event name"  x:Name="EventName" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
                     </Border>
                 </HorizontalStackLayout>
 
@@ -64,7 +64,7 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Media:" TextColor="Black" FontSize="20" VerticalOptions="Center" Margin="60,0,0,0"/>
                     <Border Stroke="Black" BackgroundColor="White">
-                        <Entry Placeholder="File Path" WidthRequest="200" FontSize="15"  BackgroundColor="White" TextColor="Black" />
+                        <Entry Placeholder="File Path" x:Name="EventMediaFile" WidthRequest="200" FontSize="15"  BackgroundColor="White" TextColor="Black" />
                     </Border>
                     <Button Text="Browse.." BackgroundColor="Black" TextColor="White" Clicked="BrowseFiles" />
                 </HorizontalStackLayout>
@@ -73,15 +73,21 @@
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Event Description:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
                     <Border Stroke="Black" BackgroundColor="White" WidthRequest="300" HeightRequest="150">
-                        <Editor Placeholder="Enter the event description here..." FontSize="15" BackgroundColor="White" TextColor="Black" AutoSize="TextChanges" MaxLength="500" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                        <Editor Placeholder="Enter the event description here..." x:Name="EventDescription" FontSize="15" BackgroundColor="White" TextColor="Black" AutoSize="TextChanges" MaxLength="500" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
                     </Border>
+                </HorizontalStackLayout>
+
+                <!-- DatePicker Field -->
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Event Date:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                    <DatePicker x:Name="EventDatePicker" Format="dddd, MMMM dd, yyyy" TextColor="White" BackgroundColor="Black" />
                 </HorizontalStackLayout>
 
                 <!-- Registration Form Link Field -->
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Registration Form Link:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
                     <Border Stroke="Black" BackgroundColor="White">
-                        <Entry Placeholder="Enter your link" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
+                        <Entry Placeholder="Enter your link" x:Name="EventFormLink" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
                     </Border>
                 </HorizontalStackLayout>
 
