@@ -65,10 +65,43 @@ public partial class AddEvent : ContentPage
 
 
 
-    private void BrowseFiles(object sender, EventArgs e)
-    {
 
+    private async void BrowseFiles(object sender, EventArgs e)
+    {
+        try
+        {
+     
+            var file = await FilePicker.PickAsync(new PickOptions
+            {
+                PickerTitle = "Select an image",
+                FileTypes = FilePickerFileType.Images
+            });
+
+            if (file != null)
+            {
+                string fileName = file.FileName;  
+                string filePath = Path.Combine(FileSystem.AppDataDirectory, fileName);  
+
+            
+                using (var stream = await file.OpenReadAsync())
+                using (var newFile = File.OpenWrite(filePath))
+                {
+                    await stream.CopyToAsync(newFile);
+                }
+
+                EventMediaFile.Text = filePath;
+            }
+            else
+            {
+                await DisplayAlert("No File Selected", "Please select an image file.", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
     }
+
 
     private void OnHamburgerClicked(object sender, EventArgs e)
     {
