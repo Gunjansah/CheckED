@@ -23,7 +23,18 @@ namespace CheckED;
 
         async void BtnCreateAccount(object sender, EventArgs e)
         {
-            if (UserPasswordCA.Text != UserConfirmPasswordCA.Text)
+        // Validate inputs
+            if (string.IsNullOrWhiteSpace(UserNameCA.Text) ||
+                string.IsNullOrWhiteSpace(UserEmailCA.Text) ||
+                string.IsNullOrWhiteSpace(UserPhoneCA.Text) ||
+                string.IsNullOrWhiteSpace(UserPasswordCA.Text) ||
+                string.IsNullOrWhiteSpace(UserConfirmPasswordCA.Text))
+            {
+                await DisplayAlert("Error", "Please fill in all fields.", "OK");
+                return;
+            }
+
+        if (UserPasswordCA.Text != UserConfirmPasswordCA.Text)
             {
                 await DisplayAlert("Error", "Passwords do not match", "OK");
                 return;

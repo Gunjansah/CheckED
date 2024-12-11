@@ -5,56 +5,63 @@
              Title="User Dashboard">
 
     <Grid>
-        
+
+        <!-- Define Row and Column Definitions -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            
             <RowDefinition Height="*" />
-            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
-            
             <ColumnDefinition Width="*" />
-            
         </Grid.ColumnDefinitions>
 
-       
+        <!-- Sidebar -->
         <StackLayout BackgroundColor="LightGray" Padding="10" Grid.RowSpan="2" Grid.Column="0">
-            
-            
+            <!-- Hamburger Menu Button -->
             <ImageButton Source="hamburger_icon.png" Clicked="OnHamburgerClicked"
-             BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30"
-             HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
+                         BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30"
+                         HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
 
+            <!-- User Image -->
+            <Image Source="checked.png" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10" />
 
-            
-            <Image Source="checked.png" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10"     />
-            <Label Text="Username" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
+            <!-- Username Label -->
+            <Label Text="{Binding CurrentUserName}" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
 
-            
-
-            
+            <!-- Sidebar Options -->
             <StackLayout x:Name="SidebarOptions" IsVisible="False" Padding="5" Spacing="10">
-                <Button Text="Account Settings" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                <Button Text="Contact Us" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                <Button Text="Logout" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                <Button Text="Account Settings" 
+                        BackgroundColor="Transparent" 
+                        TextColor="Black" 
+                        HorizontalOptions="Start" 
+                        Clicked="OnAccountSettingsClicked"/>
+                <Button Text="Contact Us" 
+                        BackgroundColor="Transparent" 
+                        TextColor="Black" 
+                        HorizontalOptions="Start" 
+                        Clicked="OnContactUsClicked"/>
+                <Button Text="Logout" 
+                        BackgroundColor="Transparent" 
+                        TextColor="Black" 
+                        HorizontalOptions="Start" 
+                        Clicked="OnLogoutClicked"/>
             </StackLayout>
         </StackLayout>
 
-        
+        <!-- Top Bar -->
         <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Spacing="5">
+            <!-- Search Entry -->
             <Entry Placeholder="Search your events" x:Name="SearchEvents" TextColor="Black" FontSize="15" WidthRequest="300" BackgroundColor="LightGray" HorizontalOptions="StartAndExpand" TextChanged="OnSearchTextChanged"/>
 
-            
+            <!-- Dark Mode Toggle -->
             <HorizontalStackLayout VerticalOptions="Center" Spacing="0">
                 <Switch x:Name="DarkModeToggle" Toggled="OnDarkModeToggled" Margin="-10,0,0,0"/>
                 <Label Text="Dark Mode" VerticalOptions="Center" TextColor="Black" Margin="-100,0,0,0" />
             </HorizontalStackLayout>
         </StackLayout>
 
-
-        
+        <!-- Main Content -->
         <ScrollView BackgroundColor="White" Grid.Row="1" Grid.Column="1" Padding="20">
             <Grid ColumnSpacing="20" RowSpacing="20">
                 <Grid.ColumnDefinitions>
@@ -62,7 +69,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-               
+                <!-- Upcoming Events Section -->
                 <VerticalStackLayout Padding="20" Spacing="20" Grid.Column="0">
                     <Label Text="Upcoming Events" FontAttributes="Bold" FontSize="18" TextColor="Black" />
                     <ScrollView>
@@ -80,7 +87,6 @@
                                             <Label Text="{Binding EventDescription}" FontSize="14" TextColor="Black" />
                                             <Button Text="REGISTER" BackgroundColor="Black" TextColor="White" Clicked="BtnRegister" />
                                             <Button Text="More Info" BackgroundColor="Transparent" TextColor="Blue" Clicked="OnMoreInfoClicked" />
-
                                         </VerticalStackLayout>
                                     </Frame>
                                 </DataTemplate>
@@ -89,7 +95,7 @@
                     </ScrollView>
                 </VerticalStackLayout>
 
-                
+                <!-- Registered Events Section -->
                 <VerticalStackLayout Padding="20" Spacing="20" Grid.Column="1">
                     <Label Text="Registered Events" FontAttributes="Bold" FontSize="18" TextColor="Black" />
                     <ScrollView>
