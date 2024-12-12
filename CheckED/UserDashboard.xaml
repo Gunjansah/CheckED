@@ -53,10 +53,10 @@
                          HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
 
             <!-- User Image -->
-            <Image Source="checked.png" 
-                   HeightRequest="80" 
-                   WidthRequest="80" 
-                   Aspect="AspectFit" 
+            <Image Source="calendar2.png" 
+                   HeightRequest="150" 
+                   WidthRequest="150" 
+                   Aspect="AspectFill" 
                    HorizontalOptions="Center" 
                    VerticalOptions="Start" 
                    Margin="0,0,0,10" />

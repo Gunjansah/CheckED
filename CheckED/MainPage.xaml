@@ -28,7 +28,7 @@
             BackgroundColor="Transparent">
 
             <Image
-                Source="checkedlogo.png"
+                Source="calendar2.png"
                 HeightRequest="300"
                 Aspect="AspectFit"
                 HorizontalOptions="Center"/>

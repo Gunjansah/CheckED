@@ -37,9 +37,9 @@
          HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
 
             <!-- User Image -->
-            <Image Source="checked.png" 
-                    HeightRequest="80" 
-                    WidthRequest="80" 
+            <Image Source="calendar2.png" 
+           HeightRequest="150" 
+           WidthRequest="150"
                     Aspect="AspectFit" 
                     HorizontalOptions="Center" 
                     VerticalOptions="Start" 
