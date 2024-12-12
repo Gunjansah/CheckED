@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckED.ContactUsPage"
+             >
+    <StackLayout Padding="20" Spacing="15">
+        <Label Text="Contact Us" FontSize="24" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+        <!-- Add contact form or information here -->
+    </StackLayout>
+</ContentPage>

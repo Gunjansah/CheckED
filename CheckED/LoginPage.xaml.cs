@@ -18,7 +18,16 @@ public partial class LoginPage : ContentPage
 
         async void BtnUserSignIn(object sender, EventArgs e)
         {
-            var user = await database.GetUserAsync(UserEmailLogin.Text);
+            string email = UserEmailLogin.Text.Trim();
+            string password = UserPasswordLogin.Text;
+
+        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+        {
+            await DisplayAlert("Error", "Please enter both email and password.", "OK");
+            return;
+        }
+
+        var user = await database.GetUserAsync(UserEmailLogin.Text);
 
             if (user == null || user.Password != ComputeHash(UserPasswordLogin.Text))
             {
@@ -26,7 +35,8 @@ public partial class LoginPage : ContentPage
                 return;
             }
 
-            UserSession.UserId = user.Id;
+        UserSession.UserId = user.Id;
+        UserSession.UserName = user.Name;
 
         await Navigation.PushAsync(new UserDashboard());
     }

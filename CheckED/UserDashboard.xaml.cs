@@ -11,6 +11,7 @@ public partial class UserDashboard : ContentPage
     public ObservableCollection<Event> SearchedUpcomingEvents { get; set; }
 
     public ObservableCollection<Event> SearchedRegisteredEvents { get; set; }
+    public string CurrentUserName => UserSession.UserName;
 
     DatabaseHelper database;
     public UserDashboard()
@@ -133,6 +134,29 @@ public partial class UserDashboard : ContentPage
 
 
 
+    private async void OnAccountSettingsClicked(object sender, EventArgs e)
+    {
+        //await Navigation.PushAsync(new AccountSettingsPage());
+        SidebarOptions.IsVisible = false; // Hide sidebar after navigation
+    }
+
+    // Handler for Contact Us button
+    private async void OnContactUsClicked(object sender, EventArgs e)
+    {
+        //await Navigation.PushAsync(new ContactUsPage());
+        SidebarOptions.IsVisible = false; // Hide sidebar after navigation
+    }
+
+    // Handler for Logout button
+    private async void OnLogoutClicked(object sender, EventArgs e)
+    {
+        bool confirm = await DisplayAlert("Logout", "Are you sure you want to logout?", "Yes", "No");
+        if (confirm)
+        {
+            UserSession.Clear(); // Clear user session
+            await Navigation.PopToRootAsync(); // Navigate back to the Login Page
+        }
+    }
 
 
 
