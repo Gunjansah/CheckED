@@ -1,3 +1,4 @@
+using QRCoder;
 using System.Collections.ObjectModel;
 
 namespace CheckED;
@@ -277,6 +278,17 @@ public partial class UserDashboard : ContentPage
           
             await Navigation.PushAsync(new EventDetails(selectedEvent));
         }
+    }
+
+    private async void OnCheckInClicked(object sender, EventArgs e)
+    {
+        var selectedEvent = (sender as Button)?.BindingContext as Event;
+        if (selectedEvent != null)
+        {
+
+            await Navigation.PushAsync(new EventDetails(selectedEvent));
+        }
+
     }
 }
 

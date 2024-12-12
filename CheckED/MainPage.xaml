@@ -79,19 +79,6 @@
 
             </HorizontalStackLayout>
 
-            <Button
-                BackgroundColor="#F5E1A4"
-                x:Name="GuestBtn"
-                Text="Continue as Guest"
-                TextColor="#5D4037"
-                FontSize="16"
-                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
-                CornerRadius="10"
-                HeightRequest="50"
-                WidthRequest="200"
-                HorizontalOptions="CenterAndExpand"
-                Clicked="GuestBtnClicked"/>
-
         </VerticalStackLayout>
     </ScrollView>
 

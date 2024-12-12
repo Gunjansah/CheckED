@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.EventDetails"
              Title="Event Details">
-
     <Grid>
-        <!-- Sidebar and Main Content Layout -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -15,7 +13,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Sidebar with Hamburger Icon, Logo, and Username -->
+        <!-- Sidebar -->
         <StackLayout Padding="10" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Transparent">
 
             <StackLayout.Background>
@@ -86,9 +84,9 @@
             </StackLayout>
         </StackLayout>
 
+
         <!-- Main Content Area for Event Details -->
         <ScrollView BackgroundColor="White" Grid.Row="1" Grid.Column="1" Padding="20">
-
             <ScrollView.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
 
@@ -102,35 +100,40 @@
 
                 </LinearGradientBrush>
             </ScrollView.Background>
-            
             <VerticalStackLayout Spacing="20">
                 <!-- Event Image -->
                 <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="200" HorizontalOptions="Center" />
 
                 <!-- Event Title -->
-                <Label Text="{Binding EventName}" FontAttributes="Bold" FontSize="24" TextColor="#F5E1A4" HorizontalOptions="Center" />
+                <Label Text="{Binding EventName}" FontAttributes="Bold" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
 
                 <!-- Event Details -->
-                <Frame Padding="20" BorderColor="LightGray" CornerRadius="10" BackgroundColor="Transparent">
+                <Frame Padding="20" BorderColor="LightGray" CornerRadius="10" BackgroundColor="White">
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="Event Date:" FontAttributes="Bold" TextColor="#5D4037" />
-                        <Label Text="{Binding EventDate}" TextColor="#5D4037" />
-
-                        <Label Text="Event Description:" FontAttributes="Bold" TextColor="#5D4037" />
-                        <Label Text="{Binding EventDescription}" TextColor="#5D4037" />
+                        <Label Text="Event Date:" FontAttributes="Bold" TextColor="Black" />
+                        <Label Text="{Binding EventDate}" TextColor="Gray" />
+                        <Label Text="Event Description:" FontAttributes="Bold" TextColor="Black" />
+                        <Label Text="{Binding EventDescription}" TextColor="Gray" />
                     </VerticalStackLayout>
                 </Frame>
 
-                <!-- Register Button -->
-                
+                <!-- Action Buttons -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
-                    <Button Text="Register" x:Name="Register" BackgroundColor="#F5E1A4" TextColor="#5D4037" HorizontalOptions="Center" Clicked="BtnRegister" IsVisible="False"/>
-                    <Button Text="Unregister" x:Name="Unregister" BackgroundColor="#F5E1A4" TextColor="#5D4037" HorizontalOptions="Center" Clicked="BtnUnregister" IsVisible="False"/>
-                    <Button x:Name="CheckInButton" Text="Check In" BackgroundColor="#F5E1A4" TextColor="#5D4037" />
-                    <Button x:Name="ShowQRButton" Text="Show QR" BackgroundColor="#F5E1A4" TextColor="#5D4037" />
-                    <Button x:Name="EditButton" Text="Edit" BackgroundColor="#F5E1A4" TextColor="#5D4037" IsVisible="False" Clicked="OnEditEventClicked" />
+                    <Button Text="Register" x:Name="Register"  BackgroundColor="#F5E1A4"
+ TextColor="#5D4037" HorizontalOptions="Center" Clicked="BtnRegister" IsVisible="False"/>
+                    <Button Text="Unregister" x:Name="Unregister" BackgroundColor="#F5E1A4"
+ TextColor="#5D4037" HorizontalOptions="Center" Clicked="BtnUnregister" IsVisible="False"/>
+                    <Button x:Name="CheckInButton" Text="Check In"  BackgroundColor="#F5E1A4"
+ TextColor="#5D4037" Clicked="OnCheckInClicked" IsVisible="False" />
                 </StackLayout>
 
+                <!-- QR Code Display Area -->
+                <Frame x:Name="QRCodeFrame" IsVisible="false" Padding="10" BorderColor="LightGray" CornerRadius="10" BackgroundColor="Transparent" HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="10">
+                        <Image x:Name="QRCodeImage" WidthRequest="200" HeightRequest="200" />
+                        <Label x:Name="QRCodeValue" Text="QR Code Value" HorizontalOptions="Center" IsVisible="False" />
+                    </VerticalStackLayout>
+                </Frame>
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

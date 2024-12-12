@@ -264,6 +264,7 @@
                                                 FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
                                                 CornerRadius="10" 
                                                 HeightRequest="50"
+                                                Clicked="OnCheckInClicked"
                                                 WidthRequest="150"/>
                                         <Button Text="Unregister" 
                                                 BackgroundColor="#E57373" 
