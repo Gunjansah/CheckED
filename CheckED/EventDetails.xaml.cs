@@ -6,11 +6,11 @@ namespace CheckED;
 
 public partial class EventDetails : ContentPage
 {
-    public string CurrentUserName => UserSession.UserName;
+   
 
     DatabaseHelper database;
     private Event selectedEvent;
-
+    public string CurrentUserName => UserSession.UserName;
 
     public EventDetails(Event selectedEvent)
     {
@@ -158,4 +158,6 @@ public partial class EventDetails : ContentPage
     {
         SidebarOptions.IsVisible = !SidebarOptions.IsVisible;
     }
+
+
 }

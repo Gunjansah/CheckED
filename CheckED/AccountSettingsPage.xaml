@@ -62,7 +62,7 @@
 
             <!-- Account Settings Section -->
             <Frame BorderColor="#D7CCC8" 
-                   BackgroundColor="#FFFFFF" 
+                   BackgroundColor="Transparent" 
                    CornerRadius="15" 
                    Padding="20">
                 <VerticalStackLayout Spacing="15">
@@ -79,7 +79,7 @@
                                TextColor="#5D4037" 
                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                         <Label Grid.Column="1" Text="{Binding UserPhone}" 
-                               TextColor="#8D6E63" 
+                               TextColor="#F5E1A4" 
                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                     </Grid>
 

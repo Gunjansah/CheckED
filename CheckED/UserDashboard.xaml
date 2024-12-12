@@ -130,8 +130,11 @@
                    Margin="0,0,10,20"
                    TextChanged="OnSearchTextChanged"/>
 
-            <!-- Dark Mode Toggle -->
-           
+            <!-- Dark Mode Toggle 
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="0">
+                <Switch x:Name="DarkModeToggle" Toggled="OnDarkModeToggled" Margin="-10,0,0,0"/>
+                <Label Text="Dark Mode" VerticalOptions="Center" TextColor="#5D4037" Margin="-100,0,0,0" />
+            </HorizontalStackLayout> -->
         </StackLayout>
 
         <!-- Main Content -->
@@ -172,7 +175,7 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Frame Padding="10" Margin="0,0,0,20" 
-                                       BackgroundColor="#FFFFFF" 
+                                       BackgroundColor="Transparent" 
                                        CornerRadius="10" 
                                        HasShadow="True" 
                                        BorderColor="#D7CCC8">
@@ -183,15 +186,15 @@
                                         <Label Text="{Binding EventName}" 
                                                FontSize="16" 
                                                FontAttributes="Bold" 
-                                               TextColor="#5D4037" 
+                                               TextColor="#5D4039" 
                                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                                         <Label Text="{Binding EventDate}" 
                                                FontSize="14" 
-                                               TextColor="#8D6E63" 
+                                               TextColor="#5D4040" 
                                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                                         <Label Text="{Binding EventDescription}" 
                                                FontSize="14" 
-                                               TextColor="#5D4037" 
+                                               TextColor="#5D4040" 
                                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                                         <Button Text="REGISTER" 
                                                 BackgroundColor="#F5E1A4" 
@@ -204,7 +207,7 @@
                                                 Clicked="BtnRegister"/>
                                         <Button Text="More Info" 
                                                 BackgroundColor="Transparent" 
-                                                TextColor="#BFA58A" 
+                                                TextColor="#5D4037" 
                                                 FontSize="16" 
                                                 FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
                                                 CornerRadius="10" 
@@ -233,7 +236,7 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Frame Padding="10" Margin="0,0,0,20" 
-                                       BackgroundColor="#FFFFFF" 
+                                       BackgroundColor="Transparent" 
                                        CornerRadius="10" 
                                        HasShadow="True" 
                                        BorderColor="#D7CCC8">
@@ -244,15 +247,15 @@
                                         <Label Text="{Binding EventName}" 
                                                FontSize="16" 
                                                FontAttributes="Bold" 
-                                               TextColor="#5D4037" 
+                                               TextColor="#F5E1A4" 
                                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                                         <Label Text="{Binding EventDate}" 
                                                FontSize="14" 
-                                               TextColor="#8D6E63" 
+                                               TextColor="#F5E1A4" 
                                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                                         <Label Text="{Binding EventDescription}" 
                                                FontSize="14" 
-                                               TextColor="#5D4037" 
+                                               TextColor="#F5E1A4" 
                                                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"/>
                                         <Button Text="Check In" 
                                                 BackgroundColor="#F5E1A4" 

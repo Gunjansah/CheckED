@@ -23,6 +23,7 @@ namespace CheckED
             builder.Services.AddTransient<UserDashboard>();
             builder.Services.AddTransient<AccountSettingsPage>();
             builder.Services.AddTransient<ContactUsPage>();
+            
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
