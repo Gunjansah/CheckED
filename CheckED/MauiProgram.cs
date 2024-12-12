@@ -32,3 +32,6 @@ namespace CheckED
         }
     }
 }
+
+
+// I had added the User, Logout and Contact Pages.
