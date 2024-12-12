@@ -9,6 +9,7 @@ public partial class CreatorDashboard : ContentPage
     public ObservableCollection<Event> YourEvents { get; set; }
     public ObservableCollection<Event> SearchedEvents { get; set; }
 
+    public string CurrentUserName => UserSession.UserName;
 
     DatabaseHelper database;
     public CreatorDashboard()
@@ -95,5 +96,31 @@ public partial class CreatorDashboard : ContentPage
     private void OnDarkModeToggled(object sender, ToggledEventArgs e)
     {
 
+    }
+
+    private async void OnAccountSettingsClicked(object sender, EventArgs e)
+    {
+        var accountSettingsPage = new AccountSettingsPage(database); // Pass the DatabaseHelper instance
+        await Navigation.PushAsync(accountSettingsPage);
+        SidebarOptions.IsVisible = false; // Hide sidebar after navigation
+    }
+
+    private async void OnContactUsClicked(object sender, EventArgs e)
+    {
+        var contactUsPage = new ContactUsPage(database); // Pass the DatabaseHelper instance
+        await Navigation.PushAsync(contactUsPage);
+        SidebarOptions.IsVisible = false; // Hide sidebar after navigation
+    }
+
+
+    // Handler for Logout button
+    private async void OnLogoutClicked(object sender, EventArgs e)
+    {
+        bool confirm = await DisplayAlert("Logout", "Are you sure you want to logout?", "Yes", "No");
+        if (confirm)
+        {
+            UserSession.Clear(); // Clear user session
+            await Navigation.PopToRootAsync(); // Navigate back to the Login Page
+        }
     }
 }

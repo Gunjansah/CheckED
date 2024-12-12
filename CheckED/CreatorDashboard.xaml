@@ -20,39 +20,126 @@
         </Grid.ColumnDefinitions>
 
         <!-- Sidebar with Hamburger Icon, Logo, and Username -->
-        <StackLayout BackgroundColor="LightGray" Padding="10" Grid.RowSpan="2" Grid.Column="0">
+        <StackLayout Padding="10" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Transparent">
 
+            <StackLayout.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
 
+                    <GradientStop Color="#FFF9E3" Offset="0.1"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="1.0"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="1.0"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="1.0"/>
+
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <!-- Hamburger Menu Button -->
             <ImageButton Source="hamburger_icon.png" Clicked="OnHamburgerClicked"
-                         BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30"
-                         HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
+                 BackgroundColor="#F5E1A4" WidthRequest="30" HeightRequest="30"
+                 HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
 
+            <!-- User Image -->
+            <Image Source="checked.png" 
+           HeightRequest="80" 
+           WidthRequest="80" 
+           Aspect="AspectFit" 
+           HorizontalOptions="Center" 
+           VerticalOptions="Start" 
+           Margin="0,0,0,10" />
 
+            <!-- Username Label -->
+            <Label Text="{Binding CurrentUserName}" 
+           FontSize="16" 
+           FontAttributes="Bold" 
+           TextColor="#5D4037" 
+           FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif" 
+           HorizontalOptions="Center" 
+           Margin="0,0,0,10" />
 
-            <Image Source="checked.png" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10"     />
-            <Label Text="{Binding CurrentUserName}" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
-
-
+            <!-- Sidebar Options -->
             <StackLayout x:Name="SidebarOptions" IsVisible="False" Padding="5" Spacing="10">
-                <Button Text="Account Settings" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                <Button Text="Contact Us" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                <Button Text="Logout" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                <Button Text="Account Settings" 
+                Clicked="OnAccountSettingsClicked"
+                FontSize="16"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                BackgroundColor="#F5E1A4"
+                TextColor="#5D4037"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="150"/>
+                <Button Text="Contact Us" 
+                Clicked="OnContactUsClicked"
+                FontSize="16"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                BackgroundColor="#F5E1A4"
+                TextColor="#5D4037"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="150"/>
+                <Button Text="Logout" 
+                Clicked="OnLogoutClicked"
+                FontSize="16"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                BackgroundColor="#E57373"
+                TextColor="#FFFFFF"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="150"/>
             </StackLayout>
         </StackLayout>
 
-        
-        <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Spacing="5">
-            <Entry Placeholder="Search your events" x:Name="SearchEvents" TextColor="Black" FontSize="15" WidthRequest="300" BackgroundColor="LightGray" HorizontalOptions="StartAndExpand" TextChanged="OnSearchTextChanged"/>
+        <!-- Top Bar -->
+        <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="#5D4037" Grid.Row="0" Grid.Column="1" Spacing="5">
 
-            
-            <HorizontalStackLayout VerticalOptions="Center" Spacing="0">
-                <Switch x:Name="DarkModeToggle" Toggled="OnDarkModeToggled" />
-                <Label Text="Dark Mode" VerticalOptions="Center" TextColor="Black" Margin="-100,0,0,0" />
-            </HorizontalStackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+
+                    <GradientStop Color="#FFF9E3" Offset="0.1"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="0.5"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="0.6"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="1.0"/>
+
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <!-- Search Entry -->
+            <Entry Placeholder="Search your events" x:Name="SearchEvents" 
+                   TextColor="#5D4037" 
+                   FontSize="15" 
+                   FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                   BackgroundColor="#FFFFFF" 
+                   HeightRequest="50"
+                   WidthRequest="300"
+                   
+                   Margin="0,0,10,20"
+                   TextChanged="OnSearchTextChanged"/>
+
+            <!-- Dark Mode Toggle -->
+
         </StackLayout>
 
-        
+
+
         <ScrollView BackgroundColor="White" Grid.Row="1" Grid.Column="1" Padding="20">
+
+            <ScrollView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+
+                    <GradientStop Color="#FFF9E3" Offset="0.1"/>
+
+                    <GradientStop Color="#5D4037" Offset="0.6"/>
+
+                    <GradientStop Color="#A1887F" Offset="0.7"/>
+
+                    <GradientStop Color="#F5E1A4" Offset="1.0"/>
+
+                </LinearGradientBrush>
+            </ScrollView.Background>
+            
             <Grid ColumnSpacing="20" RowSpacing="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -61,8 +148,8 @@
 
                 <VerticalStackLayout Padding="20" Spacing="20">
                     <HorizontalStackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Your Events" FontAttributes="Bold" FontSize="18" TextColor="Black" HorizontalOptions="StartAndExpand" />
-                        <Button Text="+ CREATE" Clicked="BtnCreateEvent" BackgroundColor="Black" TextColor="White" WidthRequest="100" Margin="1000,-10,0,0" HorizontalOptions="Center" />
+                        <Label Text="Your Events" FontAttributes="Bold" FontSize="18" TextColor="#5D4037" HorizontalOptions="StartAndExpand" />
+                        <Button Text="+ CREATE" Clicked="BtnCreateEvent" BackgroundColor="#F5E1A4" TextColor="#5D4037" WidthRequest="100" Margin="1000,-10,0,0" HorizontalOptions="Center" />
                     </HorizontalStackLayout>
 
                     
@@ -73,13 +160,13 @@
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Frame Padding="10" Margin="0,0,0,10" WidthRequest="800" CornerRadius="10" HasShadow="True" BackgroundColor="White" BorderColor="LightGray">
+                                    <Frame Padding="10" Margin="0,0,0,10" WidthRequest="800" CornerRadius="10" HasShadow="True" BackgroundColor="Transparent" BorderColor="LightGray">
                                         <VerticalStackLayout Spacing="10">
                                             <Image Source="{Binding ImageUrl}" Aspect="AspectFit" HeightRequest="200" />
-                                            <Label Text="{Binding EventName}" FontSize="20" FontAttributes="Bold" TextColor="Black" />
-                                            <Label Text="{Binding EventDate}" FontSize="16" TextColor="Gray" />
-                                            <Label Text="{Binding EventDescription}" FontSize="14" TextColor="Black" />
-                                            <Button Text="More Info" Clicked="BtnMoreInfo" BackgroundColor="Black" TextColor="White" />
+                                            <Label Text="{Binding EventName}" FontSize="20" FontAttributes="Bold" TextColor="#5D4037" />
+                                            <Label Text="{Binding EventDate}" FontSize="16" TextColor="#F5E1A4" />
+                                            <Label Text="{Binding EventDescription}" FontSize="14" TextColor="#F5E1A4" />
+                                            <Button Text="More Info" Clicked="BtnMoreInfo" BackgroundColor="#F5E1A4" TextColor="#5D4037" />
                                         </VerticalStackLayout>
                                     </Frame>
                                 </DataTemplate>

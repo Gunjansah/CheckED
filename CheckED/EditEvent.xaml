@@ -19,42 +19,102 @@
                 <!-- Main content area -->
             </Grid.ColumnDefinitions>
 
-            <!-- Sidebar with Hamburger Icon, Logo, and Username -->
-            <StackLayout BackgroundColor="LightGray" Padding="10" Grid.RowSpan="2" Grid.Column="0">
-                <!-- Hamburger Icon -->
-                <ImageButton Source="hamburger_icon.png" Clicked="OnHamburgerClicked"
-                         BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30"
-                         HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
+        <!-- Sidebar with Hamburger Icon, Logo, and Username -->
+        <StackLayout Padding="10" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Transparent">
 
-                <!-- Logo and Username Display -->
-                <Image Source="checked.png" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10" />
-                <Label Text="Username" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
+            <StackLayout.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
 
-                <!-- Compact Sidebar Options (initially hidden) -->
-                <StackLayout x:Name="SidebarOptions" IsVisible="False" Padding="5" Spacing="10">
-                    <Button Text="Account Settings" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                    <Button Text="Contact Us" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                    <Button Text="Logout" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                </StackLayout>
+                    <GradientStop Color="#FFF9E3" Offset="0.1"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="1.0"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="1.0"/>
+
+                    <GradientStop Color="#FFF9E3" Offset="1.0"/>
+
+                </LinearGradientBrush>
+            </StackLayout.Background>
+            <!-- Hamburger Menu Button -->
+            <ImageButton Source="hamburger_icon.png" Clicked="OnHamburgerClicked"
+         BackgroundColor="#F5E1A4" WidthRequest="30" HeightRequest="30"
+         HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,40" />
+
+            <!-- User Image -->
+            <Image Source="checked.png" 
+   HeightRequest="80" 
+   WidthRequest="80" 
+   Aspect="AspectFit" 
+   HorizontalOptions="Center" 
+   VerticalOptions="Start" 
+   Margin="0,0,0,10" />
+
+            <!-- Username Label -->
+            <Label Text="{Binding CurrentUserName}" 
+   FontSize="16" 
+   FontAttributes="Bold" 
+   TextColor="#5D4037" 
+   FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif" 
+   HorizontalOptions="Center" 
+   Margin="0,0,0,10" />
+
+            <!-- Sidebar Options -->
+            <StackLayout x:Name="SidebarOptions" IsVisible="False" Padding="5" Spacing="10">
+                <Button Text="Account Settings" 
+        Clicked="OnAccountSettingsClicked"
+        FontSize="16"
+        FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+        BackgroundColor="#F5E1A4"
+        TextColor="#5D4037"
+        CornerRadius="10"
+        HeightRequest="50"
+        WidthRequest="150"/>
+                <Button Text="Contact Us" 
+        Clicked="OnContactUsClicked"
+        FontSize="16"
+        FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+        BackgroundColor="#F5E1A4"
+        TextColor="#5D4037"
+        CornerRadius="10"
+        HeightRequest="50"
+        WidthRequest="150"/>
+                <Button Text="Logout" 
+        Clicked="OnLogoutClicked"
+        FontSize="16"
+        FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+        BackgroundColor="#E57373"
+        TextColor="#FFFFFF"
+        CornerRadius="10"
+        HeightRequest="50"
+        WidthRequest="150"/>
             </StackLayout>
+        </StackLayout>
 
-            <!-- Header Row: Search Bar and Dark Mode Toggle (optional for consistency) -->
-            <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="White" Grid.Row="0" Grid.Column="1" Spacing="5">
-                <Entry Placeholder="Search events" TextColor="Black" FontSize="15" WidthRequest="300" BackgroundColor="LightGray" HorizontalOptions="StartAndExpand" />
-                <HorizontalStackLayout VerticalOptions="Center" Spacing="0">
-                    <Switch x:Name="DarkModeToggle" Toggled="OnDarkModeToggled" Margin="-10,0,0,0"/>
-                    <Label Text="Dark Mode" VerticalOptions="Center" TextColor="Black" Margin="-100,0,0,0" />
-                </HorizontalStackLayout>
-            </StackLayout>
+        <!-- Top Bar -->
 
-            <!-- Main Content Area for Adding an Event -->
+        <!-- Main Content Area for Adding an Event -->
             <ScrollView BackgroundColor="White" Grid.Row="1" Grid.Column="1" Padding="20">
-                <VerticalStackLayout Padding="20" Spacing="20">
-                    <Label Text="Add Event" FontAttributes="Bold" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
+
+            <ScrollView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+
+                    <GradientStop Color="#FFF9E3" Offset="0.1"/>
+
+                    <GradientStop Color="#5D4037" Offset="0.6"/>
+
+                    <GradientStop Color="#A1887F" Offset="0.7"/>
+
+                    <GradientStop Color="#F5E1A4" Offset="1.0"/>
+
+                </LinearGradientBrush>
+            </ScrollView.Background>
+                
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Label Text="Add Event" FontAttributes="Bold" FontSize="24" TextColor="#5D4037" HorizontalOptions="Center" />
 
                     <!-- Event Name Field -->
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="Event Name:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                    <Label Text="Event Name:" TextColor="#5D4037" FontSize="20" VerticalOptions="Center" />
                         <Border Stroke="Black" BackgroundColor="White">
                             <Entry Placeholder="Enter event name"  x:Name="EventName" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
                         </Border>
@@ -62,16 +122,16 @@
 
                     <!-- Media Field -->
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="Media:" TextColor="Black" FontSize="20" VerticalOptions="Center" Margin="60,0,0,0"/>
+                    <Label Text="Media:" TextColor="#5D4037" FontSize="20" VerticalOptions="Center" Margin="60,0,0,0"/>
                         <Border Stroke="Black" BackgroundColor="White">
                             <Entry Placeholder="File Path" x:Name="EventMediaFile" WidthRequest="200" FontSize="15"  BackgroundColor="White" TextColor="Black" />
                         </Border>
-                        <Button Text="Browse.." BackgroundColor="Black" TextColor="White" Clicked="BrowseFiles" />
+                    <Button Text="Browse.." BackgroundColor="#F5E1A4" TextColor="#5D4037" Clicked="BrowseFiles" />
                     </HorizontalStackLayout>
 
                     <!-- Event Description Field -->
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="Event Description:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                    <Label Text="Event Description:" TextColor="#5D4037" FontSize="20" VerticalOptions="Center" />
                         <Border Stroke="Black" BackgroundColor="White" WidthRequest="300" HeightRequest="150">
                             <Editor Placeholder="Enter the event description here..." x:Name="EventDescription" FontSize="15" BackgroundColor="White" TextColor="Black" AutoSize="TextChanges" MaxLength="500" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
                         </Border>
@@ -79,21 +139,23 @@
 
                     <!-- DatePicker Field -->
                     <HorizontalStackLayout Spacing="10">
-                    <Label Text="Event Date:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
-                    <DatePicker x:Name="EventDatePicker" Format="dddd, MMMM dd, yyyy" TextColor="White" BackgroundColor="Black" />
+                    <Label Text="Event Date:" TextColor="#5D4037" FontSize="20" VerticalOptions="Center" />
+                    <Border Stroke="Black"  >
+                        <DatePicker x:Name="EventDatePicker" Format="dddd, MMMM dd, yyyy" TextColor="#5D4037" />
+                    </Border>
 
                 </HorizontalStackLayout>
 
                     <!-- Registration Form Link Field -->
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="Registration Form Link:" TextColor="Black" FontSize="20" VerticalOptions="Center" />
+                    <Label Text="Registration Form Link:" TextColor="#5D4037" FontSize="20" VerticalOptions="Center" />
                         <Border Stroke="Black" BackgroundColor="White">
                             <Entry Placeholder="Enter your link" x:Name="EventFormLink" WidthRequest="300" FontSize="15" BackgroundColor="White" TextColor="Black" />
                         </Border>
                     </HorizontalStackLayout>
 
                     <!-- Add Event Button -->
-                    <Button Text="Save Changes" x:Name="EdittheEvent" Clicked="EditTheEvent" BackgroundColor="Black" TextColor="White" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20,0,0" />
+                <Button Text="Save Changes" x:Name="EdittheEvent" Clicked="EditTheEvent" BackgroundColor="#F5E1A4" TextColor="#5D4037" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20,0,0" />
                 </VerticalStackLayout>
             </ScrollView>
         </Grid>

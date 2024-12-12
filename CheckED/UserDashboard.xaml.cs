@@ -162,9 +162,18 @@ public partial class UserDashboard : ContentPage
 
 
 
-    private void OnToggleDarkModeClicked(object sender, EventArgs e)
+    private void OnDarkModeToggled(object sender, ToggledEventArgs e)
     {
-
+        if (e.Value) // Dark mode enabled
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+            Preferences.Set("DarkMode", true); // Save preference
+        }
+        else // Light mode
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+            Preferences.Set("DarkMode", false); // Save preference
+        }
     }
 
     private async void BtnRegister(object sender, EventArgs e)
@@ -257,10 +266,7 @@ public partial class UserDashboard : ContentPage
         
     }
 
-    private void OnDarkModeToggled(object sender, ToggledEventArgs e)
-    {
-
-    }
+    
 
     private async void OnMoreInfoClicked(object sender, EventArgs e)
     {
