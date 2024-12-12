@@ -56,6 +56,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Resources\Styles\AppStyles.xaml.cs" />
+	  <Compile Remove="Resources\Styles\Dictionary1.xaml.cs" />
+	  <Compile Remove="Resources\Styles\NewPage1.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Resources\Styles\AppStyles.Designer.xaml" />
+	  <MauiXaml Remove="Resources\Styles\AppStyles.xaml" />
+	  <MauiXaml Remove="Resources\Styles\Dictionary1.xaml" />
+	  <MauiXaml Remove="Resources\Styles\NewPage1.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\Image1.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	</ItemGroup>

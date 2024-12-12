@@ -2,9 +2,129 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.ContactUsPage"
-             >
-    <StackLayout Padding="20" Spacing="15">
-        <Label Text="Contact Us" FontSize="24" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
-        <!-- Add contact form or information here -->
-    </StackLayout>
+             Title="Contact Us"
+             BackgroundColor="#FFF9E3">
+
+    <Grid>
+        <!-- Gradient Background -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#F5E1A4" Offset="0.1"/>
+                <GradientStop Color="#D4C4A4" Offset="0.3"/>
+                <GradientStop Color="#BFA58A" Offset="0.6"/>
+                <GradientStop Color="#FFF9E3" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollView BackgroundColor="Transparent">
+            <VerticalStackLayout 
+                Spacing="25" 
+                Padding="30"
+                HorizontalOptions="Center"
+                MaximumWidthRequest="500"
+                BackgroundColor="Transparent">
+
+                <!-- Header -->
+                <Label 
+                    Text="Contact Us"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    TextColor="#5D4037"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                    HorizontalOptions="Center" 
+                    Margin="0,30,0,20"/>
+
+                <!-- Name Input -->
+                <Frame BackgroundColor="#FFFFFF" 
+                       CornerRadius="15" 
+                       Padding="0"
+                       BorderColor="#D7CCC8">
+                    <Grid Padding="15">
+                        <Label 
+                            Text="Name"
+                            FontSize="16"
+                            TextColor="#5D4037"
+                            FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                            VerticalOptions="Center"/>
+                        <Entry
+                            x:Name="UserNameEntry"
+                            Placeholder=""
+                            TextColor="#5D4037"
+                            PlaceholderColor="#A1887F"
+                            FontSize="16"
+                            FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                            BackgroundColor="Transparent"
+                            WidthRequest="250"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Email Input -->
+                <Frame BackgroundColor="#FFFFFF" 
+                       CornerRadius="15" 
+                       Padding="0"
+                       BorderColor="#D7CCC8">
+                    <Grid Padding="15">
+                        <Label 
+                            Text="Email"
+                            FontSize="16"
+                            TextColor="#5D4037"
+                            FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                            VerticalOptions="Center"/>
+                        <Entry
+                            x:Name="UserEmailEntry"
+                            Placeholder=""
+                            TextColor="#5D4037"
+                            PlaceholderColor="#A1887F"
+                            FontSize="16"
+                            FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                            Keyboard="Email"
+                            BackgroundColor="Transparent"
+                            WidthRequest="250"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Message Input -->
+                <Frame BackgroundColor="#FFFFFF" 
+                       CornerRadius="15" 
+                       Padding="0"
+                       BorderColor="#D7CCC8">
+                    <Grid Padding="15">
+                        <Label 
+                            Text="Message"
+                            FontSize="16"
+                            TextColor="#5D4037"
+                            FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                            VerticalOptions="Start"/>
+                        <Editor
+                            x:Name="UserMessageEditor"
+                            Placeholder=""
+                            TextColor="#5D4037"
+                            PlaceholderColor="#A1887F"
+                            FontSize="16"
+                            FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                            BackgroundColor="Transparent"
+                            WidthRequest="250"
+                            HeightRequest="150"
+                           />
+                    </Grid>
+                </Frame>
+
+                <!-- Submit Button -->
+                <Button
+                    Text="Send Message"
+                    x:Name="ButtonSubmit"
+                    Clicked="OnSubmitClicked"
+                    BackgroundColor="#F5E1A4"
+                    TextColor="#5D4037"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    Margin="0,20,0,30"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

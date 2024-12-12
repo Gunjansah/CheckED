@@ -2,6 +2,7 @@
 using SQLite;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Collections.Generic;
 
 namespace CheckED
 {
@@ -15,18 +16,20 @@ namespace CheckED
             {
                 _database = new SQLiteAsyncConnection(dbPath);
 
+                // Create tables if they do not exist
                 _database.CreateTableAsync<User>().Wait();
                 _database.CreateTableAsync<Event>().Wait();
+                _database.CreateTableAsync<ContactMessage>().Wait(); // Added ContactMessage table
 
-
-                Console.WriteLine("Database initialized and table created.");
+                Console.WriteLine("Database initialized and tables created.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Database initialization failed: {ex.Message}");
             }
-            
         }
+
+        // User Methods
 
         public Task<int> SaveUserAsync(User user)
         {
@@ -38,8 +41,17 @@ namespace CheckED
             return _database.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
         }
 
+        public Task<User> GetUserByIdAsync(int id)
+        {
+            return _database.Table<User>().Where(u => u.Id == id).FirstOrDefaultAsync();
+        }
 
+        public Task<int> UpdateUserAsync(User user)
+        {
+            return _database.UpdateAsync(user);
+        }
 
+        // Event Methods
 
         public Task<int> SaveEventAsync(Event evnt)
         {
@@ -53,18 +65,14 @@ namespace CheckED
 
         public async Task<List<Event>> GetRegisteredEventsUserAsync(int userId)
         {
-          
             var user = await _database.Table<User>().Where(u => u.Id == userId).FirstOrDefaultAsync();
 
             if (user != null && !string.IsNullOrEmpty(user.RegisteredEvents))
             {
-          
                 var registeredEventIds = JsonSerializer.Deserialize<List<int>>(user.RegisteredEvents);
 
-               
                 var allEvents = await _database.Table<Event>().ToListAsync();
 
-            
                 var registeredEvents = allEvents.Where(e => registeredEventIds.Contains(e.EventId)).ToList();
 
                 return registeredEvents;
@@ -78,31 +86,25 @@ namespace CheckED
             var user = await _database.Table<User>().Where(u => u.Id == userId).FirstOrDefaultAsync();
             if (user != null)
             {
-              
                 var registeredEventIds = string.IsNullOrEmpty(user.RegisteredEvents)
                     ? new List<int>()
                     : JsonSerializer.Deserialize<List<int>>(user.RegisteredEvents);
 
                 if (isRegistering)
                 {
-                    registeredEventIds.Add(eventId); 
+                    if (!registeredEventIds.Contains(eventId))
+                        registeredEventIds.Add(eventId);
                 }
                 else
                 {
-                    registeredEventIds.Remove(eventId); 
+                    registeredEventIds.Remove(eventId);
                 }
 
-             
                 user.RegisteredEvents = JsonSerializer.Serialize(registeredEventIds);
 
-              
                 await _database.UpdateAsync(user);
             }
         }
-
-
-
-
 
         public Task<int> UpdateEventAsync(Event evnt)
         {
@@ -114,6 +116,16 @@ namespace CheckED
             return _database.Table<Event>().ToListAsync();
         }
 
+        // ContactMessage Methods
 
+        public Task<int> SaveContactMessageAsync(ContactMessage message)
+        {
+            return _database.InsertAsync(message);
+        }
+
+        public Task<List<ContactMessage>> GetAllContactMessagesAsync()
+        {
+            return _database.Table<ContactMessage>().OrderByDescending(m => m.Timestamp).ToListAsync();
+        }
     }
 }

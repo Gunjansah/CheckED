@@ -2,31 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.MainPage"
-             BackgroundColor="Black">
+             BackgroundColor="#FFF9E3"
+             Title="Main Page">
 
-    <ScrollView
-        Orientation="Both"
-        MinimumHeightRequest="600">
+    <ScrollView Orientation="Both" MinimumHeightRequest="600" BackgroundColor="Transparent">
+
+        <ScrollView.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#5D4037" Offset="0.0"/>
+                
+                <GradientStop Color="#A1887F" Offset="0.6"/>
+                
+                <GradientStop Color="#F5E1A4" Offset="0.8"/>
+                
+                <GradientStop Color="#FFF9E3" Offset="1.0"/>
+                
+            </LinearGradientBrush>
+        </ScrollView.Background>
         
         <VerticalStackLayout
             Padding="10"
             Spacing="20"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            BackgroundColor="Black">
-            
+            BackgroundColor="Transparent">
+
             <Image
                 Source="checkedlogo.png"
                 HeightRequest="300"
-                Aspect="Fill"
+                Aspect="AspectFit"
                 HorizontalOptions="Center"/>
-
 
             <Label
                 Text="Welcome to CheckEd"
-                FontSize="26"
+                FontSize="24"
                 FontAttributes="Bold"
-                TextColor="White"
+                TextColor="#5D4037"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
                 HorizontalOptions="Center"/>
 
             <HorizontalStackLayout
@@ -35,48 +47,51 @@
                 HorizontalOptions="Center">
 
                 <Button
-                    BackgroundColor="#ede8ff"
+                    BackgroundColor="#F5E1A4"
                     x:Name="UserBtn"
                     Text="User"
-                    TextColor="Black"
-                    FontSize="18"
-                    
-                    CornerRadius="5"
+                    TextColor="#5D4037"
+                    FontSize="16"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                    CornerRadius="10"
                     HeightRequest="50"
-                    WidthRequest="100"
+                    WidthRequest="120"
                     Clicked="UserBtnClicked"/>
 
                 <Label
                     Text="OR"
-                    TextColor="Gray"
-                    FontSize="18"
+                    TextColor="#F5E1A4"
+                    FontSize="16"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
                     VerticalTextAlignment="Center"/>
 
                 <Button
-                    BackgroundColor="#ede8ff"
+                    BackgroundColor="#F5E1A4"
                     x:Name="CreatorBtn"
                     Text="Creator"
-                    TextColor="black"
-                    FontSize="18"
-                    
-                    CornerRadius="5"
+                    TextColor="#5D4037"
+                    FontSize="16"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                    CornerRadius="10"
                     HeightRequest="50"
-                    WidthRequest="100"
+                    WidthRequest="120"
                     Clicked="CreatorBtnClicked"/>
 
             </HorizontalStackLayout>
 
             <Button
-                BackgroundColor="#ede8ff"
+                BackgroundColor="#F5E1A4"
                 x:Name="GuestBtn"
                 Text="Continue as Guest"
-                TextColor="black"
-                FontSize="18"
-                CornerRadius="5"
+                TextColor="#5D4037"
+                FontSize="16"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                CornerRadius="10"
                 HeightRequest="50"
+                WidthRequest="200"
                 HorizontalOptions="CenterAndExpand"
                 Clicked="GuestBtnClicked"/>
-                
+
         </VerticalStackLayout>
     </ScrollView>
 

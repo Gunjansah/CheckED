@@ -136,16 +136,18 @@ public partial class UserDashboard : ContentPage
 
     private async void OnAccountSettingsClicked(object sender, EventArgs e)
     {
-        //await Navigation.PushAsync(new AccountSettingsPage());
+        var accountSettingsPage = new AccountSettingsPage(database); // Pass the DatabaseHelper instance
+        await Navigation.PushAsync(accountSettingsPage);
         SidebarOptions.IsVisible = false; // Hide sidebar after navigation
     }
 
-    // Handler for Contact Us button
     private async void OnContactUsClicked(object sender, EventArgs e)
     {
-        //await Navigation.PushAsync(new ContactUsPage());
+        var contactUsPage = new ContactUsPage(database); // Pass the DatabaseHelper instance
+        await Navigation.PushAsync(contactUsPage);
         SidebarOptions.IsVisible = false; // Hide sidebar after navigation
     }
+
 
     // Handler for Logout button
     private async void OnLogoutClicked(object sender, EventArgs e)

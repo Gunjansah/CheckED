@@ -38,7 +38,7 @@ public partial class ResetPassword : ContentPage
             await DisplayAlert("Success", "Verification code sent to your email.", "OK");
             VerificationEmailInput.IsVisible = false;
             VerificationEmailLabel.IsVisible = false;
-            VerificationEmailFrame.IsVisible = false;
+            
 
             SendVerificationCoded.IsVisible = false;
 
