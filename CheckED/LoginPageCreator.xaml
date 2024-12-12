@@ -3,73 +3,87 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CheckED.LoginPageCreator"
              Title="Login Page"
-             BackgroundColor="Black">
+             BackgroundColor="#FFF9E3">
 
-    <ScrollView
-        Orientation="Both"
-        MinimumHeightRequest="600">
+    <ScrollView Orientation="Both" MinimumHeightRequest="600" BackgroundColor="#FFF9E3">
+
+        <ScrollView.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+
+                <GradientStop Color="#FFF9E3" Offset="0.0"/>
+
+                <GradientStop Color="#5D4037" Offset="0.0"/>
+
+                <GradientStop Color="#A1887F" Offset="0.5"/>
+
+                <GradientStop Color="#F5E1A4" Offset="1.0"/>
+
+
+
+            </LinearGradientBrush>
+        </ScrollView.Background>
 
         <VerticalStackLayout
             HorizontalOptions="Center"
             VerticalOptions="Center"
             Spacing="20"
-            Padding="30">
+            Padding="30"
+            BackgroundColor="Transparent">
 
             <Label 
                 Text="Login"
-                TextColor="White"
-                FontSize="28"
+                FontSize="24"
                 FontAttributes="Bold"
+                TextColor="#F5E1A4"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
                 HorizontalOptions="Center"
                 Margin="0,0,0,30"/>
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center"
-                VerticalOptions="Start"
-                Spacing="45">
-
+            <HorizontalStackLayout Spacing="20">
                 <Label 
                     Text="Email"
-                    TextColor="White"
-                    FontSize="20"
+                    FontSize="16"
+                    TextColor="#F5E1A4"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" />
 
                 <Entry
-                        Placeholder="Your email address..."
-                        x:Name="UserEmailLogin"
-                        TextColor="Black"
-                        FontSize="15"
-                        BackgroundColor="White"
-                        WidthRequest="300"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Start" />
-
+                    Placeholder="Your email address..."
+                    x:Name="UserEmailLogin"
+                    TextColor="#5D4037"
+                    PlaceholderColor="#A1887F"
+                    FontSize="14"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                    BackgroundColor="#FFFFFF"
+                    HeightRequest="50"
+                    WidthRequest="300"
+                    
+                    Margin="0,5,0,5" />
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center"
-                VerticalOptions="Start"
-                Spacing="10">
-
+            <HorizontalStackLayout Spacing="20">
                 <Label 
                     Text="Password"
-                    TextColor="White"
-                    FontSize="20"
+                    FontSize="16"
+                    TextColor="#F5E1A4"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
                     VerticalOptions="Center" 
                     HorizontalOptions="Center" />
 
                 <Entry
-                        Placeholder="Your Password..."
-                        x:Name="UserPasswordLogin"
-                        IsPassword="True"
-                        TextColor="Black"
-                        FontSize="15"
-                        BackgroundColor="White"
-                        WidthRequest="300"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Start" />
-
+                    Placeholder="Your Password..."
+                    x:Name="UserPasswordLogin"
+                    IsPassword="True"
+                    TextColor="#5D4037"
+                    PlaceholderColor="#A1887F"
+                    FontSize="14"
+                    FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                    BackgroundColor="#FFFFFF"
+                    HeightRequest="50"
+                    WidthRequest="300"
+                    
+                    Margin="0,5,0,5" />
             </HorizontalStackLayout>
 
             <Button
@@ -77,8 +91,9 @@
                 x:Name="ButtonForgotPassword"
                 Clicked="BtnForgotPassword"
                 Margin="0"
-                FontSize="14"
-                TextColor="White"
+                FontSize="16"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                TextColor="#F5E1A4"
                 BackgroundColor="Transparent"
                 HorizontalOptions="Center" />
 
@@ -87,20 +102,24 @@
                 x:Name="ButtonUserSignIn"
                 Clicked="BtnUserSignIn"
                 Margin="25"
-                FontSize="17"
-                TextColor="Black"
-                BackgroundColor="#ede8ff"
+                FontSize="16"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                TextColor="#5D4037"
+                BackgroundColor="#F5E1A4"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="250"
                 HorizontalOptions="Center"
-                VerticalOptions="Center"
-                CornerRadius="5"/>
+                VerticalOptions="Center" />
 
             <Button
                 Text="Create An Account?"
                 x:Name="ButtonCreateAcc"
                 Clicked="BtnCreateAcc"
                 Margin="0,5"
-                FontSize="14"
-                TextColor="White"
+                FontSize="16"
+                FontFamily="Segoe UI, Helvetica Neue, Arial, sans-serif"
+                TextColor="#F5E1A4"
                 BackgroundColor="Transparent"
                 HorizontalOptions="Center" />
         </VerticalStackLayout>

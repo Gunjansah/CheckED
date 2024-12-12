@@ -26,15 +26,27 @@
 
 
             <Image Source="checked.png" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10"     />
-            <Label Text="Username" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
+            <Label Text="{Binding CurrentUserName}" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,10" />
 
 
 
 
             <StackLayout x:Name="SidebarOptions" IsVisible="False" Padding="5" Spacing="10">
-                <Button Text="Account Settings" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                <Button Text="Contact Us" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
-                <Button Text="Logout" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="Start" />
+                <Button Text="Account Settings" 
+            BackgroundColor="Black" 
+            TextColor="White" 
+            HorizontalOptions="Start" 
+            Clicked="OnAccountSettingsClicked"/>
+                <Button Text="Contact Us" 
+            BackgroundColor="Black" 
+            TextColor="White" 
+            HorizontalOptions="Start" 
+            Clicked="OnContactUsClicked"/>
+                <Button Text="Logout" 
+            BackgroundColor="Red" 
+            TextColor="White" 
+            HorizontalOptions="Start" 
+            Clicked="OnLogoutClicked"/>
             </StackLayout>
         </StackLayout>
 
